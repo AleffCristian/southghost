@@ -1,0 +1,107 @@
+{{ define "main" }}
+
+{{ $posts := where .Site.RegularPages "Section" "blog" }}
+{{ $posts = $posts.ByDate.Reverse }}
+{{ $featured := where $posts "Params.featured" true }}
+
+<div class="sg-shell">
+
+  <main class="sg-main">
+
+    <div class="sg-view-switcher" role="group" aria-label="Modo de visualização">
+      <button class="sg-view-button is-active" type="button" data-view="list" aria-pressed="true">
+        <span aria-hidden="true">☰</span>
+        Lista
+      </button>
+      <button class="sg-view-button" type="button" data-view="grid" aria-pressed="false">
+        <span aria-hidden="true">▦</span>
+        Grade
+      </button>
+    </div>
+
+    {{ if gt (len $featured) 0 }}
+      <section class="sg-featured" aria-labelledby="sg-featured-title">
+        <div class="sg-featured-header">
+          <h2 id="sg-featured-title">Destaques</h2>
+
+          <button
+            class="sg-featured-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="sg-featured-content"
+          >
+            Mostrar
+          </button>
+        </div>
+
+        <div class="sg-featured-content" id="sg-featured-content" hidden>
+          {{ range $featured }}
+            <article class="sg-featured-post">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+
+              {{ with .Description }}
+                <p>{{ . }}</p>
+              {{ end }}
+            </article>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+
+    <div class="sg-archive" data-archive>
+
+      {{ range ($posts.GroupByDate "2006 - January") }}
+        <section class="sg-month" id="{{ .Key | urlize }}">
+
+          <h1>{{ .Key }}</h1>
+
+          <div class="sg-posts">
+
+            {{ range .Pages }}
+              <article class="sg-post">
+                <span class="sg-post-marker" aria-hidden="true">◆</span>
+
+                <div class="sg-post-body">
+                  <h2>
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                  </h2>
+
+                  {{ with .Description }}
+                    <p class="sg-post-description">{{ . }}</p>
+                  {{ end }}
+
+                  {{ with .Params.tags }}
+                    <div class="sg-tags" aria-label="Tags">
+                      {{ range . }}
+                        <span>#{{ . }}</span>
+                      {{ end }}
+                    </div>
+                  {{ end }}
+                </div>
+              </article>
+            {{ end }}
+
+          </div>
+        </section>
+      {{ end }}
+
+    </div>
+
+  </main>
+
+  <aside class="sg-sidebar" aria-label="Arquivo por mês">
+    <h2>Nesta página</h2>
+
+    <nav>
+      {{ range ($posts.GroupByDate "2006 - January") }}
+        <a href="#{{ .Key | urlize }}">{{ .Key }}</a>
+      {{ end }}
+    </nav>
+  </aside>
+
+</div>
+
+{{ $homeJS := resources.Get "js/home.js" | minify | fingerprint }}
+<script src="{{ $homeJS.RelPermalink }}" integrity="{{ $homeJS.Data.Integrity }}" defer></script>
+
+{{ end }}
