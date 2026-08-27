@@ -1,0 +1,23 @@
+{{ define "main" }}
+
+<h1>{{ .Title }}</h1>
+
+{{ range site.Data.filmes }}
+
+<article>
+  <h2>{{ .titulo }} ({{ .ano }})</h2>
+
+  <p>Nota: {{ .nota }}/5</p>
+
+  <p>{{ .review }}</p>
+
+  <p>Assistido em: {{ .data_assistido }}</p>
+
+  <a href="{{ .link }}" target="_blank" rel="noopener">
+    Ver no Letterboxd
+  </a>
+</article>
+
+{{ end }}
+
+{{ end }}
