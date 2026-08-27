@@ -4,6 +4,14 @@
 {{ $posts = $posts.ByDate.Reverse }}
 {{ $featured := where $posts "Params.featured" true }}
 
+{{ $filmes := hugo.Data.filmes }}
+{{ $ultimoFilme := false }}
+
+{{ if gt (len $filmes) 0 }}
+  {{ $filmesOrdenados := sort $filmes "data_assistido" "desc" }}
+  {{ $ultimoFilme = index $filmesOrdenados 0 }}
+{{ end }}
+
 <div class="sg-shell">
 
   <main class="sg-main">
@@ -13,6 +21,7 @@
         <span aria-hidden="true">☰</span>
         Lista
       </button>
+
       <button class="sg-view-button" type="button" data-view="grid" aria-pressed="false">
         <span aria-hidden="true">▦</span>
         Grade
@@ -21,6 +30,7 @@
 
     {{ if gt (len $featured) 0 }}
       <section class="sg-featured" aria-labelledby="sg-featured-title">
+
         <div class="sg-featured-header">
           <h2 id="sg-featured-title">Destaques</h2>
 
@@ -45,12 +55,64 @@
             </article>
           {{ end }}
         </div>
+
       </section>
     {{ end }}
 
     <div class="sg-archive" data-archive>
 
+      {{ if $ultimoFilme }}
+        <section class="sg-month sg-filmes-feed" id="filmes">
+
+          <h1>Atualizações</h1>
+
+          <div class="sg-posts">
+
+            <article class="sg-post">
+              <span class="sg-post-marker" aria-hidden="true">◆</span>
+
+              <div class="sg-post-body">
+
+                <h2>
+                  <a href="{{ "/filmes/" | relURL }}">
+                    Avaliações/Recomendações de Filmes
+                  </a>
+                </h2>
+
+                <p class="sg-post-description">
+                  Último filme:
+                  <strong>{{ $ultimoFilme.titulo }}</strong>
+
+                  {{ with $ultimoFilme.ano }}
+                    ({{ . }})
+                  {{ end }}
+
+                  {{ with $ultimoFilme.nota }}
+                    — {{ . }}/5
+                  {{ end }}
+
+                  {{ if eq $ultimoFilme.categoria "top" }}
+                    · Filme Top
+                  {{ else if eq $ultimoFilme.categoria "existe" }}
+                    · Filme que Existe
+                  {{ else if eq $ultimoFilme.categoria "lixo" }}
+                    · Filme Lixo
+                  {{ end }}
+                </p>
+
+                <div class="sg-tags">
+                  <span>#Filmes</span>
+                </div>
+
+              </div>
+            </article>
+
+          </div>
+        </section>
+      {{ end }}
+
       {{ range ($posts.GroupByDate "2006 - January") }}
+
         <section class="sg-month" id="{{ .Key | urlize }}">
 
           <h1>{{ .Key }}</h1>
@@ -58,31 +120,40 @@
           <div class="sg-posts">
 
             {{ range .Pages }}
+
               <article class="sg-post">
                 <span class="sg-post-marker" aria-hidden="true">◆</span>
 
                 <div class="sg-post-body">
+
                   <h2>
-                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    <a href="{{ .RelPermalink }}">
+                      {{ .Title }}
+                    </a>
                   </h2>
 
                   {{ with .Description }}
-                    <p class="sg-post-description">{{ . }}</p>
+                    <p class="sg-post-description">
+                      {{ . }}
+                    </p>
                   {{ end }}
 
                   {{ with .Params.tags }}
-                    <div class="sg-tags" aria-label="Tags">
+                    <div class="sg-tags">
                       {{ range . }}
                         <span>#{{ . }}</span>
                       {{ end }}
                     </div>
                   {{ end }}
+
                 </div>
               </article>
+
             {{ end }}
 
           </div>
         </section>
+
       {{ end }}
 
     </div>
@@ -90,18 +161,33 @@
   </main>
 
   <aside class="sg-sidebar" aria-label="Arquivo por mês">
+
     <h2>Nesta página</h2>
 
     <nav>
-      {{ range ($posts.GroupByDate "2006 - January") }}
-        <a href="#{{ .Key | urlize }}">{{ .Key }}</a>
+
+      {{ if $ultimoFilme }}
+        <a href="#filmes">Filmes</a>
       {{ end }}
+
+      {{ range ($posts.GroupByDate "2006 - January") }}
+        <a href="#{{ .Key | urlize }}">
+          {{ .Key }}
+        </a>
+      {{ end }}
+
     </nav>
+
   </aside>
 
 </div>
 
 {{ $homeJS := resources.Get "js/home.js" | minify | fingerprint }}
-<script src="{{ $homeJS.RelPermalink }}" integrity="{{ $homeJS.Data.Integrity }}" defer></script>
+
+<script
+  src="{{ $homeJS.RelPermalink }}"
+  integrity="{{ $homeJS.Data.Integrity }}"
+  defer
+></script>
 
 {{ end }}
