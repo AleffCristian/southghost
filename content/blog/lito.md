@@ -76,7 +76,7 @@ Independentemente da crença de cada um, os Evangelhos descrevem um momento em q
 
 Na escuridão silenciosa do **Getsêmani**, pouco antes de ser preso e posteriormente crucificado, ele não aparece indiferente ao que estava prestes a acontecer.
 
-![Jesus no Jardim do GetsêmaniI](/imagens/JESUSNOGET1.jpg)
+![Jesus no Jardim do GetsêmaniI](/imagens/jesusnoget1.jpg)
 
 Ele sabia.
 
