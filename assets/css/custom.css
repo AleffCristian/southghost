@@ -594,3 +594,103 @@
   grid-template-columns: minmax(0, 180px);
   justify-content: center;
 }
+
+
+/* =========================================================
+   FILMES - LAYOUT COM SIDEBAR
+   ========================================================= */
+
+.sg-filmes-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 900px) 220px;
+  gap: 56px;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.sg-filmes-shell .sg-filmes {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sg-filmes-sidebar {
+  position: sticky;
+  top: 90px;
+  align-self: start;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  font-size: 0.85rem;
+}
+
+.sg-filmes-sidebar h2 {
+  margin: 0 0 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.sg-filmes-sidebar-grupo {
+  margin-bottom: 22px;
+}
+
+.sg-filmes-sidebar-categoria {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.sg-filmes-sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 14px;
+}
+
+.sg-filmes-sidebar li {
+  margin: 6px 0;
+}
+
+.sg-filmes-sidebar li a {
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+.sg-filmes-sidebar li a:hover,
+.sg-filmes-sidebar-categoria:hover {
+  opacity: 1;
+}
+
+.sg-filmes-sidebar-vazio {
+  display: block;
+  padding-left: 14px;
+  opacity: 0.4;
+}
+
+
+/* Entrada de Filmes no feed */
+
+.sg-filmes-feed {
+  margin-bottom: 48px;
+}
+
+.sg-filmes-feed .sg-post-description strong {
+  font-weight: 600;
+}
+
+
+/* Mobile */
+
+@media (max-width: 900px) {
+
+  .sg-filmes-shell {
+    display: block;
+    max-width: 900px;
+  }
+
+  .sg-filmes-sidebar {
+    display: none;
+  }
+}

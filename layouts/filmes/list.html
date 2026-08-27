@@ -1,115 +1,192 @@
 {{ define "main" }}
 
-<div class="sg-filmes">
+{{ $filmes := hugo.Data.filmes }}
 
-  <header class="sg-filmes-header">
-    <h1>Filmes</h1>
-    <p>O que assisti, o que achei e o que não deveria ter assistido.</p>
-  </header>
+{{ $categorias := slice
+  (dict
+    "id" "lixo"
+    "titulo" "Filme Lixo"
+    "descricao" "Tempo de vida sem reembolso."
+  )
+  (dict
+    "id" "existe"
+    "titulo" "Filme que Existe"
+    "descricao" "Você assistiu. Ele acabou. Seguimos."
+  )
+  (dict
+    "id" "top"
+    "titulo" "Filme Top"
+    "descricao" "Vale o tempo."
+  )
+}}
 
-  {{ $filmes := site.Data.filmes }}
+<div class="sg-filmes-shell">
 
-  {{ $categorias := slice
-    (dict "id" "top" "titulo" "Filme Top" "descricao" "4.0 até 5.0 estrelas")
-    (dict "id" "existe" "titulo" "Filme que Existe" "descricao" "2.5 até 3.5 estrelas")
-    (dict "id" "lixo" "titulo" "Filme Lixo" "descricao" "0.5 até 2.0 estrelas")
-  }}
+  <main class="sg-filmes">
 
-  {{ range $categoria := $categorias }}
+    <header class="sg-filmes-header">
+      <h1>Avaliações/Recomendações de Filmes</h1>
 
-    {{ $filmesCategoria := where $filmes "categoria" $categoria.id }}
+      <p>
+        Alguns filmes são ótimos. Alguns existem.
+        Alguns foram um erro.
+      </p>
+    </header>
 
-    <section class="sg-filmes-categoria">
+    {{ range $categoria := $categorias }}
 
-      <header class="sg-filmes-categoria-header">
-        <h2>{{ $categoria.titulo }}</h2>
-        <p>{{ $categoria.descricao }}</p>
-      </header>
+      {{ $filmesCategoria := where $filmes "categoria" $categoria.id }}
 
-      {{ if $filmesCategoria }}
+      <section
+        class="sg-filmes-categoria"
+        id="categoria-{{ $categoria.id }}"
+      >
 
-        <div class="sg-filmes-grid">
+        <header class="sg-filmes-categoria-header">
+          <h2>{{ $categoria.titulo }}</h2>
+          <p>{{ $categoria.descricao }}</p>
+        </header>
 
-          {{ range $filme := $filmesCategoria }}
+        {{ if $filmesCategoria }}
 
-            <article class="sg-filme-card">
+          <div class="sg-filmes-grid">
 
-              {{ with $filme.poster }}
-                <a
-                  class="sg-filme-poster-link"
-                  href="{{ $filme.link }}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    class="sg-filme-poster"
-                    src="{{ . }}"
-                    alt="Poster de {{ $filme.titulo }}"
-                    loading="lazy"
+            {{ range $filme := $filmesCategoria }}
+
+              {{ $filmeID := printf "%s-%v" ($filme.titulo | urlize) $filme.ano }}
+
+              <article
+                class="sg-filme-card"
+                id="{{ $filmeID }}"
+              >
+
+                {{ with $filme.poster }}
+                  <a
+                    class="sg-filme-poster-link"
+                    href="{{ $filme.link }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                </a>
-              {{ end }}
-
-              <div class="sg-filme-conteudo">
-
-                <div class="sg-filme-titulo">
-                  <h3>{{ $filme.titulo }}</h3>
-
-                  {{ with $filme.ano }}
-                    <span>{{ . }}</span>
-                  {{ end }}
-                </div>
-
-                {{ with $filme.nota }}
-                  <div
-                    class="sg-filme-nota"
-                    aria-label="Nota {{ . }} de 5"
-                  >
-                    {{ . }}/5
-                  </div>
-                {{ end }}
-
-                {{ with $filme.review }}
-                  <p class="sg-filme-review">{{ . }}</p>
-                {{ end }}
-
-                <div class="sg-filme-meta">
-
-                  {{ with $filme.data_assistido }}
-                    <span>Assistido em {{ time.Format "02/01/2006" . }}</span>
-                  {{ end }}
-
-                  {{ with $filme.link }}
-                    <a
-                      href="{{ . }}"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <img
+                      class="sg-filme-poster"
+                      src="{{ . }}"
+                      alt="Pôster de {{ $filme.titulo }}"
+                      loading="lazy"
                     >
-                      Letterboxd
-                    </a>
+                  </a>
+                {{ end }}
+
+                <div class="sg-filme-conteudo">
+
+                  <div class="sg-filme-titulo">
+                    <h3>{{ $filme.titulo }}</h3>
+
+                    {{ with $filme.ano }}
+                      <span>{{ . }}</span>
+                    {{ end }}
+                  </div>
+
+                  {{ with $filme.nota }}
+                    <div
+                      class="sg-filme-nota"
+                      aria-label="Nota {{ . }} de 5"
+                    >
+                      {{ . }}/5
+                    </div>
                   {{ end }}
+
+                  {{ with $filme.review }}
+                    <p class="sg-filme-review">
+                      {{ . }}
+                    </p>
+                  {{ end }}
+
+                  <div class="sg-filme-meta">
+
+                    {{ with $filme.data_assistido }}
+                      <span>
+                        Assistido em {{ time.Format "02/01/2006" . }}
+                      </span>
+                    {{ end }}
+
+                    {{ with $filme.link }}
+                      <a
+                        href="{{ . }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Ver no Letterboxd
+                      </a>
+                    {{ end }}
+
+                  </div>
 
                 </div>
 
-              </div>
+              </article>
 
-            </article>
+            {{ end }}
 
-          {{ end }}
+          </div>
 
-        </div>
+        {{ else }}
 
-      {{ else }}
+          <p class="sg-filmes-vazio">
+            Nada por aqui.
+          </p>
 
-        <p class="sg-filmes-vazio">
-          Nenhum filme nesta categoria.
-        </p>
+        {{ end }}
 
-      {{ end }}
+      </section>
 
-    </section>
+    {{ end }}
 
-  {{ end }}
+  </main>
+
+  <aside class="sg-filmes-sidebar">
+
+    <h2>Nesta página</h2>
+
+    {{ range $categoria := $categorias }}
+
+      {{ $filmesCategoria := where $filmes "categoria" $categoria.id }}
+
+      <div class="sg-filmes-sidebar-grupo">
+
+        <a
+          class="sg-filmes-sidebar-categoria"
+          href="#categoria-{{ $categoria.id }}"
+        >
+          {{ $categoria.titulo }}
+        </a>
+
+        {{ if $filmesCategoria }}
+
+          <ul>
+            {{ range $filme := $filmesCategoria }}
+
+              {{ $filmeID := printf "%s-%v" ($filme.titulo | urlize) $filme.ano }}
+
+              <li>
+                <a href="#{{ $filmeID }}">
+                  {{ $filme.titulo }}
+                </a>
+              </li>
+
+            {{ end }}
+          </ul>
+
+        {{ else }}
+
+          <span class="sg-filmes-sidebar-vazio">—</span>
+
+        {{ end }}
+
+      </div>
+
+    {{ end }}
+
+  </aside>
 
 </div>
 
