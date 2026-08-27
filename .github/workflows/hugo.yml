@@ -6,6 +6,11 @@ on:
     branches:
       - main
 
+  # Testa Pull Requests antes de entrar na main
+  pull_request:
+    branches:
+      - main
+
   # Atualiza os filmes automaticamente a cada 6 horas
   schedule:
     - cron: "0 */6 * * *"
@@ -91,3 +96,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+        
