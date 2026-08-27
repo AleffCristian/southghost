@@ -1,4 +1,3 @@
 ---
 title: "Filmes"
-layout: "filmes"
 ---
