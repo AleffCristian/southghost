@@ -74,12 +74,6 @@ enableRobotsTXT = true
     weight = 1
 
   [[menu.main]]
-    identifier = "docs"
-    name = "Documentação"
-    pageRef = "/docs"
-    weight = 2
-
-  [[menu.main]]
     identifier = "sobre"
     name = "Sobre"
     pageRef = "/sobre"
@@ -97,11 +91,6 @@ enableRobotsTXT = true
   pageRef = "/blog"
   weight = 1
 
-[[menu.main]]
-  identifier = "docs"
-  name = "Documentação"
-  pageRef = "/docs"
-  weight = 2
 
 [[menu.main]]
   identifier = "sobre"
