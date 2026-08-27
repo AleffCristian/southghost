@@ -324,3 +324,273 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   FILMES
+   ========================================================= */
+
+.sg-filmes {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.sg-filmes-header {
+  margin-bottom: 48px;
+}
+
+.sg-filmes-header h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+}
+
+.sg-filmes-header p {
+  margin: 0;
+  opacity: 0.7;
+}
+
+
+/* CATEGORIAS */
+
+.sg-filmes-categoria {
+  margin-bottom: 64px;
+}
+
+.sg-filmes-categoria-header {
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+}
+
+.sg-filmes-categoria-header h2 {
+  margin: 0 0 4px;
+  font-size: 1.35rem;
+}
+
+.sg-filmes-categoria-header p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+
+/* GRID */
+
+.sg-filmes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 180px);
+  gap: 32px 24px;
+  justify-content: start;
+  align-items: start;
+}
+
+
+/* CARD */
+
+.sg-filme-card {
+  width: 180px;
+  min-width: 0;
+}
+
+.sg-filme-poster-link {
+  display: block;
+  width: 180px;
+  text-decoration: none;
+}
+
+
+/* PÔSTER */
+
+.sg-filme-poster {
+  display: block;
+  width: 180px;
+  height: 270px;
+  object-fit: cover;
+  margin: 0;
+  border-radius: 8px;
+}
+
+
+/* CONTEÚDO */
+
+.sg-filme-conteudo {
+  padding-top: 10px;
+}
+
+.sg-filme-titulo {
+  display: block;
+}
+
+.sg-filme-titulo h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+.sg-filme-titulo span {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.78rem;
+  opacity: 0.55;
+}
+
+
+/* NOTA */
+
+.sg-filme-nota {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+
+/* REVIEW */
+
+.sg-filme-review {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  opacity: 0.8;
+}
+
+
+/* META */
+
+.sg-filme-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 10px;
+  font-size: 0.72rem;
+  opacity: 0.65;
+}
+
+.sg-filme-meta a {
+  width: fit-content;
+}
+
+
+/* CATEGORIA VAZIA */
+
+.sg-filmes-vazio {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.5;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+
+  .sg-filmes {
+    max-width: 100%;
+    padding: 28px 20px 60px;
+  }
+
+  .sg-filmes-header {
+    margin-bottom: 40px;
+  }
+
+  .sg-filmes-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .sg-filmes-categoria {
+    margin-bottom: 48px;
+  }
+
+  .sg-filmes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 14px;
+  }
+
+  .sg-filme-card {
+    width: 100%;
+  }
+
+  .sg-filme-poster-link {
+    width: 100%;
+  }
+
+  .sg-filme-poster {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+  }
+}
+
+/* =========================================================
+   AJUSTES DE CENTRALIZAÇÃO - FILMES
+   ========================================================= */
+
+.sg-filmes-header {
+  text-align: center;
+}
+
+.sg-filmes-categoria-header {
+  text-align: center;
+}
+
+.sg-filmes-grid {
+  justify-content: center;
+}
+
+.sg-filme-card {
+  text-align: center;
+}
+
+.sg-filme-meta {
+  align-items: center;
+}
+
+.sg-filme-meta a {
+  margin: 0 auto;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+
+  .sg-filmes {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .sg-filmes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 150px));
+    justify-content: center;
+    gap: 28px 16px;
+  }
+
+  .sg-filme-card {
+    width: 100%;
+    max-width: 150px;
+    margin: 0 auto;
+  }
+
+  .sg-filme-poster-link {
+    width: 100%;
+  }
+
+  .sg-filme-poster {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+  }
+
+  .sg-filme-conteudo {
+    text-align: center;
+  }
+}
+
+
+/* UM CARD SOZINHO */
+
+.sg-filmes-grid:has(.sg-filme-card:only-child) {
+  grid-template-columns: minmax(0, 180px);
+  justify-content: center;
+}

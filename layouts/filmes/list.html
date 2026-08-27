@@ -1,23 +1,116 @@
 {{ define "main" }}
 
-<h1>{{ .Title }}</h1>
+<div class="sg-filmes">
 
-{{ range site.Data.filmes }}
+  <header class="sg-filmes-header">
+    <h1>Filmes</h1>
+    <p>O que assisti, o que achei e o que não deveria ter assistido.</p>
+  </header>
 
-<article>
-  <h2>{{ .titulo }} ({{ .ano }})</h2>
+  {{ $filmes := site.Data.filmes }}
 
-  <p>Nota: {{ .nota }}/5</p>
+  {{ $categorias := slice
+    (dict "id" "top" "titulo" "Filme Top" "descricao" "4.0 até 5.0 estrelas")
+    (dict "id" "existe" "titulo" "Filme que Existe" "descricao" "2.5 até 3.5 estrelas")
+    (dict "id" "lixo" "titulo" "Filme Lixo" "descricao" "0.5 até 2.0 estrelas")
+  }}
 
-  <p>{{ .review }}</p>
+  {{ range $categoria := $categorias }}
 
-  <p>Assistido em: {{ .data_assistido }}</p>
+    {{ $filmesCategoria := where $filmes "categoria" $categoria.id }}
 
-  <a href="{{ .link }}" target="_blank" rel="noopener">
-    Ver no Letterboxd
-  </a>
-</article>
+    <section class="sg-filmes-categoria">
 
-{{ end }}
+      <header class="sg-filmes-categoria-header">
+        <h2>{{ $categoria.titulo }}</h2>
+        <p>{{ $categoria.descricao }}</p>
+      </header>
+
+      {{ if $filmesCategoria }}
+
+        <div class="sg-filmes-grid">
+
+          {{ range $filme := $filmesCategoria }}
+
+            <article class="sg-filme-card">
+
+              {{ with $filme.poster }}
+                <a
+                  class="sg-filme-poster-link"
+                  href="{{ $filme.link }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    class="sg-filme-poster"
+                    src="{{ . }}"
+                    alt="Poster de {{ $filme.titulo }}"
+                    loading="lazy"
+                  >
+                </a>
+              {{ end }}
+
+              <div class="sg-filme-conteudo">
+
+                <div class="sg-filme-titulo">
+                  <h3>{{ $filme.titulo }}</h3>
+
+                  {{ with $filme.ano }}
+                    <span>{{ . }}</span>
+                  {{ end }}
+                </div>
+
+                {{ with $filme.nota }}
+                  <div
+                    class="sg-filme-nota"
+                    aria-label="Nota {{ . }} de 5"
+                  >
+                    {{ . }}/5
+                  </div>
+                {{ end }}
+
+                {{ with $filme.review }}
+                  <p class="sg-filme-review">{{ . }}</p>
+                {{ end }}
+
+                <div class="sg-filme-meta">
+
+                  {{ with $filme.data_assistido }}
+                    <span>Assistido em {{ time.Format "02/01/2006" . }}</span>
+                  {{ end }}
+
+                  {{ with $filme.link }}
+                    <a
+                      href="{{ . }}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Letterboxd
+                    </a>
+                  {{ end }}
+
+                </div>
+
+              </div>
+
+            </article>
+
+          {{ end }}
+
+        </div>
+
+      {{ else }}
+
+        <p class="sg-filmes-vazio">
+          Nenhum filme nesta categoria.
+        </p>
+
+      {{ end }}
+
+    </section>
+
+  {{ end }}
+
+</div>
 
 {{ end }}

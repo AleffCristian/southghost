@@ -6,7 +6,6 @@ from pathlib import Path
 
 
 RSS_URL = "https://letterboxd.com/AleffCristian/rss/"
-
 OUTPUT_FILE = Path(__file__).resolve().parents[2] / "data" / "filmes.json"
 
 NAMESPACES = {
@@ -14,10 +13,18 @@ NAMESPACES = {
 }
 
 
-class ReviewTextParser(HTMLParser):
+class DescriptionParser(HTMLParser):
     def __init__(self):
         super().__init__()
         self.parts = []
+        self.poster = None
+
+    def handle_starttag(self, tag, attrs):
+        if tag != "img" or self.poster:
+            return
+
+        atributos = dict(attrs)
+        self.poster = atributos.get("src")
 
     def handle_data(self, data):
         text = data.strip()
@@ -25,14 +32,15 @@ class ReviewTextParser(HTMLParser):
         if text:
             self.parts.append(text)
 
-    def get_text(self):
+    def get_review(self):
         return " ".join(self.parts)
 
 
-def limpar_review(html):
-    parser = ReviewTextParser()
+def processar_descricao(html):
+    parser = DescriptionParser()
     parser.feed(html)
-    return parser.get_text()
+
+    return parser.get_review(), parser.poster
 
 
 def buscar_rss():
@@ -62,7 +70,6 @@ def classificar_filme(nota):
 
 def processar_rss(xml_data):
     root = ET.fromstring(xml_data)
-
     filmes = []
 
     for item in root.findall("./channel/item"):
@@ -90,18 +97,20 @@ def processar_rss(xml_data):
         descricao = item.findtext("description") or ""
 
         nota = float(nota) if nota else None
+        review, poster = processar_descricao(descricao)
 
-        filme = {
-            "titulo": titulo,
-            "ano": int(ano) if ano else None,
-            "nota": nota,
-            "categoria": classificar_filme(nota),
-            "review": limpar_review(descricao),
-            "data_assistido": data_assistido,
-            "link": link,
-        }
-
-        filmes.append(filme)
+        filmes.append(
+            {
+                "titulo": titulo,
+                "ano": int(ano) if ano else None,
+                "nota": nota,
+                "categoria": classificar_filme(nota),
+                "review": review,
+                "data_assistido": data_assistido,
+                "link": link,
+                "poster": poster,
+            }
+        )
 
     return filmes
 
