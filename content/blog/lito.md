@@ -6,7 +6,7 @@ description: "O que acontece quando a única certeza da vida deixa de parecer di
 tags:
   - Blog
   - Pessoal
-featured: false
+featured: true
 ---
 
 # Lito Sousa e a Angústia do Inevitável
