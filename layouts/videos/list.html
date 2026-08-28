@@ -1,0 +1,358 @@
+{{ define "main" }}
+
+{{ $videos := site.Data.videos }}
+
+<div class="sg-videos">
+
+  <header class="sg-videos-header">
+    <h1>{{ .Title }}</h1>
+
+    {{ with .Description }}
+      <p>{{ . }}</p>
+    {{ end }}
+  </header>
+
+  <nav class="sg-video-filters" aria-label="Categorias de vídeos">
+
+    <button class="sg-video-filter is-active" data-filter="all">
+      Todos
+    </button>
+
+    <button class="sg-video-filter" data-filter="historia">
+      História
+    </button>
+
+    <button class="sg-video-filter" data-filter="bode">
+      É o Bode
+    </button>
+
+    <button class="sg-video-filter" data-filter="reflexivos">
+      Reflexivos
+    </button>
+
+    <button class="sg-video-filter" data-filter="goats">
+      GOATs
+    </button>
+
+  </nav>
+
+  <div class="sg-video-grid">
+
+    {{ range $videos }}
+
+      <article
+        class="sg-video-card"
+        data-category="{{ .categoria }}"
+      >
+
+        <a
+          class="sg-video-link"
+          href="{{ .url }}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <img
+            class="sg-video-thumbnail"
+            src="{{ .thumbnail }}"
+            alt="{{ .titulo }}"
+            loading="lazy"
+          >
+
+          <div class="sg-video-info">
+
+            <h2 class="sg-video-title">
+              {{ .titulo }}
+            </h2>
+
+            <p class="sg-video-channel">
+              {{ .canal }}
+            </p>
+
+          </div>
+
+        </a>
+
+        <div class="sg-video-category-wrap">
+
+          <button
+            class="sg-video-category"
+            type="button"
+            data-category-link="{{ .categoria }}"
+          >
+            {{ .categoria_nome }}
+          </button>
+
+        </div>
+
+      </article>
+
+    {{ end }}
+
+  </div>
+
+</div>
+
+<style>
+
+.sg-videos {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.sg-videos-header {
+  margin-bottom: 2rem;
+}
+
+.sg-videos-header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.sg-video-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.sg-video-filter {
+  flex: 0 0 auto;
+
+  padding: 0.65rem 1rem;
+
+  border: 1px solid rgba(127, 127, 127, 0.35);
+  border-radius: 8px;
+
+  background: transparent;
+  color: inherit;
+
+  cursor: pointer;
+}
+
+.sg-video-filter:hover {
+  border-color: currentColor;
+}
+
+.sg-video-filter.is-active {
+  border-color: currentColor;
+  font-weight: 600;
+}
+
+.sg-video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.sg-video-card {
+  min-width: 0;
+
+  border: 1px solid rgba(127, 127, 127, 0.25);
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.sg-video-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(127, 127, 127, 0.5);
+}
+
+.sg-video-link {
+  display: block;
+
+  color: inherit;
+  text-decoration: none;
+}
+
+.sg-video-thumbnail {
+  display: block;
+
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  object-fit: cover;
+}
+
+.sg-video-info {
+  padding: 0.9rem 0.9rem 0;
+}
+
+.sg-video-title {
+  margin: 0;
+
+  font-size: 1rem;
+  line-height: 1.4;
+
+  display: -webkit-box;
+
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+.sg-video-channel {
+  margin: 0.45rem 0 0;
+
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.sg-video-category-wrap {
+  padding: 0 0.9rem 0.9rem;
+}
+
+.sg-video-category {
+  display: inline-block;
+
+  margin-top: 0.75rem;
+  padding: 0;
+
+  border: 0;
+  background: none;
+
+  color: inherit;
+
+  font: inherit;
+  font-size: 0.75rem;
+
+  opacity: 0.7;
+
+  cursor: pointer;
+}
+
+.sg-video-category:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.sg-video-card.is-hidden {
+  display: none;
+}
+
+@media (max-width: 900px) {
+
+  .sg-video-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+@media (max-width: 640px) {
+
+  .sg-videos {
+    padding: 0.75rem;
+  }
+
+  .sg-video-filters {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .sg-video-filter {
+    width: 100%;
+    text-align: center;
+  }
+
+  .sg-video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sg-video-card:hover {
+    transform: none;
+  }
+
+}
+
+</style>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const filters =
+    document.querySelectorAll(".sg-video-filter");
+
+  const cards =
+    document.querySelectorAll(".sg-video-card");
+
+  const categoryLinks =
+    document.querySelectorAll("[data-category-link]");
+
+  function aplicarFiltro(selected) {
+
+    filters.forEach((button) => {
+
+      const active =
+        button.dataset.filter === selected;
+
+      button.classList.toggle(
+        "is-active",
+        active
+      );
+
+    });
+
+    cards.forEach((card) => {
+
+      const category =
+        card.dataset.category;
+
+      const visible =
+        selected === "all" ||
+        selected === category;
+
+      card.classList.toggle(
+        "is-hidden",
+        !visible
+      );
+
+    });
+
+  }
+
+  filters.forEach((filter) => {
+
+    filter.addEventListener("click", () => {
+
+      aplicarFiltro(
+        filter.dataset.filter
+      );
+
+    });
+
+  });
+
+  categoryLinks.forEach((link) => {
+
+    link.addEventListener("click", () => {
+
+      const category =
+        link.dataset.categoryLink;
+
+      aplicarFiltro(category);
+
+      document
+        .querySelector(".sg-video-filters")
+        ?.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+    });
+
+  });
+
+});
+
+</script>
+
+{{ end }}
