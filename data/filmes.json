@@ -8,5 +8,505 @@
     "data_assistido": "2026-08-27",
     "link": "https://letterboxd.com/aleffcristian/film/spider-man-brand-new-day/",
     "poster": "https://a.ltrbxd.com/resized/film-poster/8/7/2/8/7/1/872871-spider-man-brand-new-day-0-600-0-900-crop.jpg?v=ebe6beb4fc"
+  },
+  {
+    "titulo": "Spirited Away",
+    "ano": 2001,
+    "nota": 5.0,
+    "categoria": "top",
+    "review": "Chihiro começa assustada e cresce sem precisar virar uma heroína invencível. Miyazaki constrói um mundo estranho em que trabalho, ganância, identidade e amadurecimento convivem naturalmente. Reflexão: crescer não significa deixar de sentir medo; significa aprender a agir mesmo quando ele continua presente.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/spirited-away/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/9/2/1/51921-spirited-away-0-600-0-900-crop.jpg?v=a3ad463c55"
+  },
+  {
+    "titulo": "Parasite",
+    "ano": 2019,
+    "nota": 5.0,
+    "categoria": "top",
+    "review": "Song Kang-ho lidera a família Kim enquanto Cho Yeo-jeong ajuda a tornar os Park menos caricatos do que seria fácil fazer. Bong Joon-ho transforma desigualdade em arquitetura: quem está em cima, quem está embaixo e quem nem sabemos que existe. Reflexão: quando um sistema coloca pessoas disputando migalhas, é conveniente que elas culpem umas às outras em vez de olhar para a estrutura.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/parasite-2019/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/4/2/6/4/0/6/426406-parasite-0-600-0-900-crop.jpg?v=8f5653f710"
+  },
+  {
+    "titulo": "Scarface",
+    "ano": 1983,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "Al Pacino interpreta Tony Montana como se volume fosse uma filosofia de vida, e funciona. Michelle Pfeiffer traz frieza suficiente para mostrar que luxo e felicidade não vieram no mesmo pacote. De Palma faz ascensão e queda sem muita sutileza, porque Tony também não teria paciência para sutileza. Reflexão: conseguir tudo que você desejava é uma vitória estranha quando seus desejos foram construídos pela própria insegurança.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/scarface-1983/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/9/3/9/51939-scarface-0-600-0-900-crop.jpg?v=e64e66a6b8"
+  },
+  {
+    "titulo": "Halloween",
+    "ano": 1978,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "Jamie Lee Curtis faz Laurie Strode parecer uma pessoa comum antes de precisar aprender a sobreviver, enquanto Carpenter transforma Michael Myers numa presença mais do que num personagem. Reflexão: medo funciona melhor quando não conseguimos explicar completamente aquilo que está nos observando.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/halloween-1978/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/6/0/2/9/8/60298-halloween-0-600-0-900-crop.jpg?v=bcb3149dda"
+  },
+  {
+    "titulo": "Terminator 2: Judgment Day",
+    "ano": 1991,
+    "nota": 5.0,
+    "categoria": "top",
+    "review": "Arnold transforma a mesma presença mecânica do primeiro filme em algo estranhamente afetuoso. Linda Hamilton reconstrói Sarah Connor como alguém endurecida pelo conhecimento do futuro, e Robert Patrick faz o T-1000 parecer inevitável. Reflexão: aquilo para que fomos programados, pela máquina ou pela vida, não precisa definir aquilo que escolhemos nos tornar.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/terminator-2-judgment-day/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/7/7/6/51776-terminator-2-judgment-day-0-600-0-900-crop.jpg?v=64f1721e62"
+  },
+  {
+    "titulo": "The Terminator",
+    "ano": 1984,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "Arnold Schwarzenegger descobre que falar pouco pode ser uma excelente decisão artística. Linda Hamilton começa como pessoa comum enquanto Michael Biehn traz urgência a Kyle Reese. Cameron faz muito com orçamento relativamente pequeno. Reflexão: o futuro pode parecer determinado, mas toda mudança começa com alguém agindo no presente.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/the-terminator/",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/g2/2g/f0/6b/the-terminator-original-0-600-0-900-crop.jpg?v=677a47d94a"
+  },
+  {
+    "titulo": "Psycho",
+    "ano": 1960,
+    "nota": 5.0,
+    "categoria": "top",
+    "review": "Anthony Perkins faz Norman Bates parecer gentil e estranho na medida exata. Janet Leigh conduz o público por um caminho que Hitchcock decide simplesmente cortar no meio. Décadas depois, ainda dá para sentir quanto o filme brinca com expectativa. Reflexão: aquilo que parece normal à primeira vista pode esconder conflitos que nenhuma fachada consegue resolver.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/psycho/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/5/7/8/51578-psycho-0-600-0-900-crop.jpg?v=7250c49dcd"
+  },
+  {
+    "titulo": "Catch Me If You Can",
+    "ano": 2002,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "Leonardo DiCaprio dá charme a Frank Abagnale enquanto Tom Hanks faz Carl Hanratty parecer a única pessoa paciente o bastante para persegui-lo por anos. A relação começa como caça e ganha algo quase paternal. Reflexão: construir identidades falsas pode abrir portas; nenhuma delas resolve a necessidade de ser conhecido de verdade.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/catch-me-if-you-can-2002/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/4/8/4/51484-catch-me-if-you-can-0-600-0-900-crop.jpg?v=942d676423"
+  },
+  {
+    "titulo": "Saving Private Ryan",
+    "ano": 1998,
+    "nota": 5.0,
+    "categoria": "top",
+    "review": "Tom Hanks lidera um elenco em que cansaço e medo importam tanto quanto heroísmo. Spielberg abre com brutalidade suficiente para remover qualquer romantização confortável da guerra. Reflexão: sacrifício ganha significado quando quem recebe a oportunidade entende que viver também traz responsabilidade.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/saving-private-ryan/",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/hz/fu/r7/y7/35CMz4t7PuUiQqt5h4u5nbrXZlF-0-600-0-900-crop.jpg?v=3a667509e0"
+  },
+  {
+    "titulo": "Jurassic Park",
+    "ano": 1993,
+    "nota": 5.0,
+    "categoria": "top",
+    "review": "Sam Neill, Laura Dern e Jeff Goldblum equilibram maravilhamento, ciência e desconfiança enquanto Spielberg faz dinossauros parecerem reais décadas depois. Ian Malcolm resume o problema antes de tudo desandar. Reflexão: conseguir fazer algo tecnicamente não elimina a responsabilidade de perguntar quais consequências virão depois.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/jurassic-park/",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/1g/zz/ez/d8/yyCKYaW908ZbpexpnBJ3p8o87HA-0-600-0-900-crop.jpg?v=19a50874d0"
+  },
+  {
+    "titulo": "Raiders of the Lost Ark",
+    "ano": 1981,
+    "nota": 5.0,
+    "categoria": "top",
+    "review": "Harrison Ford faz Indiana Jones funcionar porque o herói apanha, erra, improvisa e continua andando. Karen Allen responde com energia suficiente para Marion nunca parecer apenas acompanhante. Spielberg e Lucas fazem aventura parecer fácil. Reflexão: competência não é nunca falhar; é continuar encontrando saída quando o plano já morreu.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/raiders-of-the-lost-ark/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/9/6/5/51965-raiders-of-the-lost-ark-0-600-0-900-crop.jpg?v=2b066bfd52"
+  },
+  {
+    "titulo": "Jaws",
+    "ano": 1975,
+    "nota": 5.0,
+    "categoria": "top",
+    "review": "Spielberg descobre que mostrar menos o tubarão torna o tubarão maior na cabeça do público. Roy Scheider, Richard Dreyfuss e Robert Shaw formam um trio excelente porque cada um encara o problema de maneira diferente. Reflexão: negar um problema para proteger a aparência de normalidade geralmente só aumenta o preço quando ele finalmente aparece.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/jaws/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/5/4/2/51542-jaws-0-600-0-900-crop.jpg?v=03299455f6"
+  },
+  {
+    "titulo": "Reservoir Dogs",
+    "ano": 1992,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "Tarantino quase não precisa mostrar o assalto. Harvey Keitel, Tim Roth e Michael Madsen transformam um galpão e muita desconfiança no filme inteiro. O diálogo já contém a violência antes de qualquer arma aparecer. Reflexão: grupos construídos sem confiança funcionam apenas enquanto nada dá errado.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/reservoir-dogs/",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/u0/4o/op/yx/g7spS2Y4SZoQoC6Hn7zoqEqdYqR-0-600-0-900-crop.jpg?v=6d1aaa720c"
+  },
+  {
+    "titulo": "The Wolf of Wall Street",
+    "ano": 2013,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "DiCaprio transforma Jordan Belfort num desastre extremamente carismático, e Jonah Hill acompanha sem tentar parecer razoável. Scorsese mostra o excesso com tanta energia que o espectador precisa lembrar: estar se divertindo vendo aquilo não significa que o filme esteja aprovando aquilo. Reflexão: carisma pode tornar comportamento destrutivo atraente sem torná-lo menos destrutivo.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/the-wolf-of-wall-street/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/8/6/1/1/4/86114-the-wolf-of-wall-street-0-600-0-900-crop.jpg?v=a2b958b6f1"
+  },
+  {
+    "titulo": "Casino",
+    "ano": 1995,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "De Niro controla, Joe Pesci explode e Sharon Stone desmonta tudo por outro ângulo. Scorsese usa Las Vegas para mostrar um império em que dinheiro compra quase tudo, menos estabilidade. Reflexão: sistemas construídos sobre ganância funcionam muito bem até cada participante decidir que merece uma parte maior.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/casino/",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/6p/om/dp/mc/casino-original-0-600-0-900-crop.jpg?v=4bb9a2596f"
+  },
+  {
+    "titulo": "GoodFellas",
+    "ano": 1990,
+    "nota": 5.0,
+    "categoria": "top",
+    "review": "Ray Liotta conduz Henry Hill com fascínio suficiente para entendermos por que aquela vida seduz. Robert De Niro traz cálculo e Joe Pesci parece uma granada sem pino. Scorsese primeiro vende o glamour e depois cobra a conta. Reflexão: poder sem limite parece liberdade até você perceber que vive cercado por pessoas das quais precisa ter medo.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/goodfellas/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/3/8/3/51383-goodfellas-0-600-0-900-crop.jpg?v=172dbb3464"
+  },
+  {
+    "titulo": "Memento",
+    "ano": 2000,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "Guy Pearce carrega um protagonista que não consegue confiar nem na própria memória, e Nolan transforma essa limitação na estrutura do filme. A cronologia quebrada não é enfeite: coloca o espectador na mesma insegurança de Leonard. Reflexão: quando fatos incomodam, até a memória pode virar ferramenta para contar a mentira que queremos acreditar.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/memento/",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/v1/3q/s4/aa/memento-0-600-0-900-crop.jpg?v=80f0732247"
+  },
+  {
+    "titulo": "Fight Club",
+    "ano": 1999,
+    "nota": 5.0,
+    "categoria": "top",
+    "review": "Edward Norton parece apagado exatamente para Brad Pitt entrar como tudo aquilo que Tyler Durden representa: confiança, liberdade e caos. Helena Bonham Carter impede que o filme vire apenas uma disputa masculina de filosofia de banheiro. Reflexão: fugir de um sistema não é liberdade se você apenas troca quem dita as regras.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/fight-club/1/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/5/6/8/51568-fight-club-0-600-0-900-crop.jpg?v=768b32dfa4"
+  },
+  {
+    "titulo": "Se7en",
+    "ano": 1995,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "Fincher transforma uma investigação em descida ao esgoto moral. Brad Pitt é impulso; Morgan Freeman é experiência e cansaço. A química funciona porque Mills corre para onde Somerset já aprendeu a olhar com desconfiança. Reflexão: quem conhece suas fraquezas pode controlar você sem precisar ser mais forte.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/se7en/1/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/3/4/5/51345-se7en-0-600-0-900-crop.jpg?v=76a14ef6b4"
+  },
+  {
+    "titulo": "Sinners",
+    "ano": 2025,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "Ryan Coogler mistura horror, música, história e identidade sem tratar nenhum desses elementos como decoração. Michael B. Jordan assume dois papéis e cria diferenças suficientes para que Smoke e Stack existam como pessoas, não apenas como truque técnico. A música é parte da narrativa e da memória coletiva do filme. Reflexão: cultura não é apenas entretenimento; preservar aquilo que um povo cria também é uma forma de preservar quem ele é.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/sinners-2025/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/1/1/1/6/6/0/0/1116600-sinners-2025-0-600-0-900-crop.jpg?v=5996b7d555"
+  },
+  {
+    "titulo": "The Devil All the Time",
+    "ano": 2020,
+    "nota": 4.0,
+    "categoria": "top",
+    "review": "Tom Holland abandona completamente o Peter Parker simpático e faz Arvin carregar violência e trauma com uma dureza inesperada. Robert Pattinson aparece como um pastor tão desagradável que quase parece estar fazendo campanha contra a própria igreja. O elenco é o grande motor de uma história sobre fé, violência e ciclos familiares. Reflexão: pessoas podem usar religião, autoridade ou moralidade como linguagem; nenhuma dessas coisas garante caráter.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/the-devil-all-the-time/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/4/2/9/9/4/5/429945-the-devil-all-the-time-0-600-0-900-crop.jpg?v=4b048ec678"
+  },
+  {
+    "titulo": "Avengers: Endgame",
+    "ano": 2019,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "Endgame funciona menos como filme isolado e mais como pagamento de uma dívida acumulada durante uma década. Robert Downey Jr. e Chris Evans carregam esse peso porque Tony Stark e Steve Rogers chegaram ao fim de trajetórias construídas por vários filmes. Quando o fan service funciona, funciona porque existe memória emocional por trás dele. Reflexão: encerrar uma jornada significa aceitar que aquilo que nos definiu por anos talvez precise terminar para que algo novo possa existir.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/avengers-endgame/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/2/2/6/6/6/0/226660-avengers-endgame-0-600-0-900-crop.jpg?v=d4006bfd5e"
+  },
+  {
+    "titulo": "Deadpool & Wolverine",
+    "ano": 2024,
+    "nota": 4.0,
+    "categoria": "top",
+    "review": "Ryan Reynolds e Hugh Jackman funcionam porque Deadpool fala por três pessoas enquanto Wolverine gostaria que nenhuma delas falasse. Jackman volta ao personagem depois de Logan e consegue preservar algum peso dramático mesmo no meio da metalinguagem. É fan service consciente de que é fan service. Reflexão: nostalgia funciona melhor quando não tenta substituir completamente uma história, mas reconhecer por que certos personagens ficaram conosco.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/deadpool-wolverine/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/4/6/2/8/7/0/462870-deadpool-wolverine-0-600-0-900-crop.jpg?v=1aa778d2c6"
+  },
+  {
+    "titulo": "Deadpool 2",
+    "ano": 2018,
+    "nota": 4.0,
+    "categoria": "top",
+    "review": "Ryan Reynolds continua confortável demais dentro de Deadpool, enquanto Josh Brolin faz Cable funcionar justamente por levar a sério um filme que se recusa a fazer o mesmo. Zazie Beetz entra como Domino e rouba várias cenas com uma habilidade que basicamente consiste em o roteiro gostar dela. Reflexão: cinismo parece independência até alguém perceber que ainda precisa de outras pessoas.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/deadpool-2/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/3/1/8/1/9/5/318195-deadpool-2-0-600-0-900-crop.jpg?v=b43b5ab190"
+  },
+  {
+    "titulo": "Deadpool",
+    "ano": 2016,
+    "nota": 4.0,
+    "categoria": "top",
+    "review": "Ryan Reynolds finalmente encontra um personagem que transforma sua incapacidade de ficar calado em requisito profissional. A química com Morena Baccarin impede que Wade Wilson seja apenas uma metralhadora de piadas. Depois da versão de Deadpool em X-Men Origins: Wolverine, o filme também funciona como pedido público de desculpas. Reflexão: humor pode ser armadura. Fazer piada com a própria dor não significa que ela deixou de existir.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/deadpool/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/2/2/0/5/7/5/220575-deadpool-0-600-0-900-crop.jpg?v=2f726ea9b3"
+  },
+  {
+    "titulo": "Howl's Moving Castle",
+    "ano": 2004,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "Miyazaki transforma guerra, envelhecimento, amor e identidade em um castelo que anda como se engenharia tivesse desistido de participar. Sophie e Howl funcionam porque ambos carregam inseguranças escondidas de formas opostas. A fantasia é enorme, mas o afeto entre os personagens mantém tudo próximo. Reflexão: aparência muda, circunstâncias mudam e até nossa percepção de nós mesmos muda; identidade é muito mais do que a forma que mostramos ao mundo.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/howls-moving-castle/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/4/9/0/6/2/49062-howl-s-moving-castle-0-600-0-900-crop.jpg?v=fde81bda52"
+  },
+  {
+    "titulo": "Terrifier 3",
+    "ano": 2024,
+    "nota": 3.5,
+    "categoria": "existe",
+    "review": "Art the Clown já chega como ícone da própria franquia, e David Howard Thornton continua provando quanto um personagem pode comunicar sem falar. Lauren LaVera mantém Sienna como contraponto necessário ao caos. O filme sabe que seu público não veio procurar delicadeza e não perde tempo fingindo o contrário. Reflexão: conhecer o próprio público é uma vantagem; o risco começa quando entregar mais vira substituto para entregar algo novo.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/terrifier-3/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/9/3/2/7/3/9/932739-terrifier-3-0-600-0-900-crop.jpg?v=6c46b036d1"
+  },
+  {
+    "titulo": "Terrifier 2",
+    "ano": 2022,
+    "nota": 3.5,
+    "categoria": "existe",
+    "review": "Damien Leone aumenta absolutamente tudo, inclusive coisas que talvez ninguém tenha pedido para aumentar. Lauren LaVera dá a Sienna uma protagonista muito mais forte, enquanto David Howard Thornton continua fazendo Art funcionar sem diálogo. A franquia finalmente ganha mais identidade além do gore. Reflexão: quando um filme assume completamente sua proposta, exagero deixa de ser acidente e vira linguagem.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/terrifier-2/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/8/8/9/0/7/588907-terrifier-2-0-600-0-900-crop.jpg?v=235a7cd041"
+  },
+  {
+    "titulo": "Terrifier",
+    "ano": 2016,
+    "nota": 3.0,
+    "categoria": "existe",
+    "review": "Terrifier não está particularmente interessado em sutileza. David Howard Thornton transforma Art the Clown no principal motivo para continuar olhando para a tela mesmo quando o bom senso sugere o contrário. A história é mínima; presença, maquiagem e violência fazem o trabalho. Reflexão: nem todo terror precisa esconder um tratado filosófico embaixo da cama. Às vezes a proposta é causar desconforto, e o mérito está em saber exatamente qual jogo está jogando.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/terrifier-2016/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/3/5/4/2/5/1/354251-terrifier-0-600-0-900-crop.jpg?v=a413b49884"
+  },
+  {
+    "titulo": "Grave of the Fireflies",
+    "ano": 1988,
+    "nota": 5.0,
+    "categoria": "top",
+    "review": "Isao Takahata usa animação para contar uma história de guerra sem heroísmo confortável. Seita e Setsuko são irmãos tentando sobreviver num mundo em que decisões de adultos destruíram quase todas as opções disponíveis para crianças. O filme não precisa transformar sofrimento em espetáculo; justamente por isso machuca mais. Reflexão: guerras são discutidas em mapas e números, mas o preço real costuma ser pago por pessoas que nunca decidiram começá-las.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/grave-of-the-fireflies/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/4/4/5/5/8/44558-grave-of-the-fireflies-0-600-0-900-crop.jpg?v=0c61fd55f0"
+  },
+  {
+    "titulo": "Eternal Sunshine of the Spotless Mind",
+    "ano": 2004,
+    "nota": 5.0,
+    "categoria": "top",
+    "review": "Jim Carrey abandona quase completamente o personagem expansivo pelo qual ficou famoso e entrega um Joel contido, enquanto Kate Winslet faz Clementine ocupar o espaço oposto. A química vem exatamente dessa incompatibilidade. Michel Gondry transforma memória em cenário e uma separação em ficção científica íntima. Reflexão: apagar a lembrança de uma dor também apaga aquilo que ela ensinou. Esquecer alguém não significa compreender por que tudo terminou.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/eternal-sunshine-of-the-spotless-mind/",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/ay/bp/kl/1y/uBfQ7IGpi0jXSP3GPCzp9Pzm10v-0-600-0-900-crop.jpg?v=116621c401"
+  },
+  {
+    "titulo": "The Perks of Being a Wallflower",
+    "ano": 2012,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "Logan Lerman faz Charlie com uma fragilidade silenciosa que combina muito bem com a energia de Emma Watson e Ezra Miller. O trio faz amizade parecer aquilo que ela realmente pode ser em determinada fase da vida: uma espécie de abrigo improvisado. O filme trata crescimento sem fingir que adolescência é apenas nostalgia bonita. Reflexão: aceitar o amor que achamos merecer também significa que mudar nossa vida exige mudar a forma como enxergamos nosso próprio valor.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/the-perks-of-being-a-wallflower/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/7/1/3/3/8/71338-the-perks-of-being-a-wallflower-0-600-0-900-crop.jpg?v=f2235860f7"
+  },
+  {
+    "titulo": "Fast & Furious",
+    "ano": 2009,
+    "nota": 3.5,
+    "categoria": "existe",
+    "review": "O quarto filme reúne novamente Vin Diesel e Paul Walker e começa a transformar a franquia de corrida de rua em ação internacional. A química entre Dom e Brian já carrega história suficiente para o reencontro importar mais que boa parte da trama. É a ponte entre duas versões completamente diferentes da série. Reflexão: confiança não volta ao ponto inicial; quando reconstruída, ela carrega as marcas do que aconteceu.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/fast-furious/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/4/3/5/8/2/43582-fast-furious-0-600-0-900-crop.jpg?v=e16e161e36"
+  },
+  {
+    "titulo": "The Fast and the Furious: Tokyo Drift",
+    "ano": 2006,
+    "nota": 4.0,
+    "categoria": "top",
+    "review": "Tokyo Drift larga quase todo mundo conhecido, atravessa o planeta e aposta em drift. Lucas Black segura Sean, mas Sung Kang rouba atenção como Han, provavelmente o sujeito mais tranquilo de uma franquia que considera freio uma opinião. O filme envelheceu melhor justamente por ter identidade própria. Reflexão: mudar de ambiente não resolve automaticamente quem você é, mas pode dar espaço para você reconstruir quem quer ser.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/the-fast-and-the-furious-tokyo-drift/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/4/6/9/8/6/46986-the-fast-and-the-furious-tokyo-drift-0-600-0-900-crop.jpg?v=d90305bf54"
+  },
+  {
+    "titulo": "2 Fast 2 Furious",
+    "ano": 2003,
+    "nota": 3.5,
+    "categoria": "existe",
+    "review": "Paul Walker volta sem Vin Diesel e encontra em Tyrese Gibson a energia que o filme precisava. Brian e Roman vivem se provocando, e essa química faz boa parte do trabalho enquanto carros coloridos desafiam discretamente algumas leis da física. É menos marcante que o primeiro, mas sabe exatamente o tipo de diversão que quer entregar. Reflexão: confiança quebrada não volta com discurso; volta quando alguém demonstra que mudou.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/2-fast-2-furious/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/5/3/6/51536-2-fast-2-furious-0-600-0-900-crop.jpg?v=63379fdd8d"
+  },
+  {
+    "titulo": "The Fast and the Furious",
+    "ano": 2001,
+    "nota": 4.0,
+    "categoria": "top",
+    "review": "Antes de carros voarem para o espaço, Velozes e Furiosos era sobre corridas de rua, DVD players roubados e homens falando de família sem transformar a palavra em religião. Paul Walker e Vin Diesel têm uma química simples que sustenta Brian e Dom: policial e suspeito começam em lados opostos e desenvolvem respeito genuíno. Reflexão: pertencimento pode ser mais forte que obrigação quando alguém finalmente encontra um grupo que considera seu.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/the-fast-and-the-furious-2001/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/4/6/8/1/3/46813-the-fast-and-the-furious-0-600-0-900-crop.jpg?v=ec37dbaf43"
+  },
+  {
+    "titulo": "Oldboy",
+    "ano": 2003,
+    "nota": 5.0,
+    "categoria": "top",
+    "review": "Park Chan-wook começa com uma prisão inexplicável e termina fazendo o espectador desejar que algumas respostas nunca fossem encontradas. Choi Min-sik entrega uma atuação física e emocional brutal; Yoo Ji-tae responde com uma calma que torna tudo ainda mais perturbador. A famosa luta do corredor é só uma pequena parte do que torna o filme memorável. Reflexão: vingança promete encerrar a dor, mas frequentemente exige que a pessoa continue vivendo em função dela.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/oldboy/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/4/5/4/51454-oldboy-0-600-0-900-crop.jpg?v=294dbcadef"
+  },
+  {
+    "titulo": "Avatar",
+    "ano": 2009,
+    "nota": 4.0,
+    "categoria": "top",
+    "review": "James Cameron pega uma história simples e constrói um mundo que virou o verdadeiro protagonista. Sam Worthington conduz Jake Sully, mas Zoe Saldaña dá a Neytiri boa parte da vida emocional do filme. Tecnicamente foi um marco e ainda funciona como espetáculo. Reflexão: chamar algo de progresso não muda muita coisa quando esse progresso depende de destruir o mundo de outra pessoa.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/avatar/",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/1p/mh/li/l2/b7nR3eKeTOwHPKmDLUWunIGasKo-0-600-0-900-crop.jpg?v=0bb5ec98ec"
+  },
+  {
+    "titulo": "Titanic",
+    "ano": 1997,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "James Cameron poderia ter feito apenas um espetáculo sobre um navio afundando. Em vez disso, usa Leonardo DiCaprio e Kate Winslet para dar uma história humana ao desastre. A química dos dois vende um romance improvável o suficiente para que, quando o iceberg finalmente resolve participar do filme, exista algo a perder. Reflexão: algumas experiências são importantes não pela duração, mas pela mudança que provocam em quem sobrevive a elas.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/titanic-1997/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/5/2/4/51524-titanic-0-600-0-900-crop.jpg?v=7517ea94ce"
+  },
+  {
+    "titulo": "Gladiator",
+    "ano": 2000,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "Ridley Scott entende que arena nenhuma funciona sem alguém por quem torcer. Russell Crowe dá peso a Maximus sem precisar discursar o tempo inteiro, enquanto Joaquin Phoenix faz Commodus ser inseguro, cruel e desagradavelmente humano. A rivalidade funciona porque um tem respeito sem buscá-lo e o outro busca respeito sem conseguir merecê-lo. Reflexão: autoridade pode ser herdada; respeito não.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/gladiator-2000/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/9/5/2/51952-gladiator-2000-0-600-0-900-crop.jpg?v=0071a74571"
+  },
+  {
+    "titulo": "The Godfather",
+    "ano": 1972,
+    "nota": 5.0,
+    "categoria": "top",
+    "review": "Marlon Brando cria um Vito Corleone que domina uma sala quase sem esforço, mas é Al Pacino quem transforma o filme. Michael começa querendo distância da família e termina sentado exatamente no lugar que dizia não querer. A mudança é tão gradual que quando percebemos já acabou. Reflexão: ninguém se transforma de uma vez. As decisões que parecem necessárias hoje podem construir, pouco a pouco, a pessoa que jurávamos nunca nos tornar.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/the-godfather/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/8/1/8/51818-the-godfather-0-600-0-900-crop.jpg?v=bca8b67402"
+  },
+  {
+    "titulo": "Spartacus",
+    "ano": 1960,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "Kubrick dirige um épico gigantesco sem deixar o espetáculo apagar o conflito humano. Kirk Douglas dá força e vulnerabilidade a Spartacus, enquanto Laurence Olivier faz Crassus representar um poder que não suporta ser desafiado. É cinema de escala monumental, mas sua ideia central é simples. Reflexão: sistemas de poder parecem invencíveis principalmente enquanto todos acreditam que resistir sozinhos é inútil.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/spartacus/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/1/9/6/51196-spartacus-0-600-0-900-crop.jpg?v=81703ce87a"
+  },
+  {
+    "titulo": "Once Upon a Time... in Hollywood",
+    "ano": 2019,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "Leonardo DiCaprio e Brad Pitt fazem o filme funcionar antes mesmo de Tarantino decidir onde quer chegar. Rick Dalton é insegurança ambulante; Cliff Booth parece alguém que aceitaria o fim do mundo desde que pudesse dirigir até lá. A amizade dos dois é o verdadeiro centro do filme. Margot Robbie dá a Sharon Tate uma leveza deliberadamente distante da tragédia histórica. Reflexão: o tempo muda uma indústria sem pedir permissão; envelhecer também é aprender quem você é quando o mundo para de precisar de você.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/once-upon-a-time-in-hollywood/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/3/9/7/8/5/9/397859-once-upon-a-time-in-hollywood-0-600-0-900-crop.jpg?v=f3e8612854"
+  },
+  {
+    "titulo": "The Godfather Part II",
+    "ano": 1974,
+    "nota": 5.0,
+    "categoria": "top",
+    "review": "Coppola faz uma continuação que também funciona como origem e tragédia. Al Pacino deixa Michael cada vez mais frio enquanto Robert De Niro constrói o jovem Vito com uma presença diferente da de Marlon Brando, sem tentar copiá-lo. Um constrói a família; o outro, tentando protegê-la, destrói tudo ao redor. Reflexão: poder pode proteger aquilo que você ama até o momento em que preservar o poder se torna mais importante do que preservar aquilo que você ama.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/the-godfather-part-ii/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/8/1/6/51816-the-godfather-part-ii-0-600-0-900-crop.jpg?v=6a49853f25"
+  },
+  {
+    "titulo": "Django Unchained",
+    "ano": 2012,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "Jamie Foxx e Christoph Waltz formam uma dupla improvável que funciona imediatamente. Waltz troca a ameaça educada de Bastardos Inglórios pelo carisma de Dr. Schultz, enquanto Leonardo DiCaprio faz Calvin Candie ser repulsivo sem precisar virar caricatura. Tarantino usa o faroeste como fantasia de vingança sem suavizar a brutalidade que está por trás dela. Reflexão: liberdade recebida é importante; liberdade conquistada muda a forma como alguém passa a enxergar a si mesmo.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/django-unchained/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/2/5/1/6/52516-django-unchained-0-600-0-900-crop.jpg?v=f02aed63a3"
+  },
+  {
+    "titulo": "Inglourious Basterds",
+    "ano": 2009,
+    "nota": 5.0,
+    "categoria": "top",
+    "review": "Tarantino reescreve a história sem pedir licença. Brad Pitt se diverte como Aldo Raine, Mélanie Laurent dá coração ao filme e Christoph Waltz estreia Hans Landa com uma atuação assustadoramente educada. A primeira conversa já mostra tudo: ele não precisa levantar a voz para controlar uma sala. Reflexão: linguagem também é poder; quem controla a conversa muitas vezes controla a situação antes de qualquer arma aparecer.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/inglourious-basterds/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/4/1/3/5/2/41352-inglourious-basterds-0-600-0-900-crop.jpg?v=0c74c673e0"
+  },
+  {
+    "titulo": "Kill Bill: Vol. 2",
+    "ano": 2004,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "Se o primeiro volume é explosão, o segundo prefere deixar os personagens conversarem antes de se matarem. Uma Thurman ganha mais espaço dramático e David Carradine transforma Bill em algo mais interessante que um chefão esperando a luta final. A química entre os dois faz o conflito parecer íntimo, não apenas épico. Reflexão: às vezes o confronto mais difícil não é derrotar quem nos feriu, mas encarar o vínculo que ainda existe com essa pessoa.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/kill-bill-vol-2/",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/ka/7q/dh/8m/bxbX4sHZHcy81dnNs4VAVs7HXDL-0-600-0-900-crop.jpg?v=52e9a07730"
+  },
+  {
+    "titulo": "Kill Bill: Vol. 1",
+    "ano": 2003,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "Tarantino transforma vingança em espetáculo de samurai, faroeste e anime. Uma Thurman domina o filme como Beatrix Kiddo e Lucy Liu faz O-Ren Ishii ter presença suficiente para não virar apenas mais um nome numa lista. Thurman e Tarantino já tinham trabalhado juntos em Pulp Fiction, mas aqui ela ganha o centro do palco. Reflexão: vingança pode dar direção a uma vida destruída; o problema é descobrir o que sobra quando a lista termina.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/kill-bill-vol-1/",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/sw/w2/ep/v4/9O50TVszkz0dcP5g6Ej33UhR7vw-0-600-0-900-crop.jpg?v=5a65f5202f"
+  },
+  {
+    "titulo": "Pulp Fiction",
+    "ano": 1994,
+    "nota": 5.0,
+    "categoria": "top",
+    "review": "Tarantino desmonta a cronologia, mistura violência, conversa banal e personagens memoráveis e faz parecer simples. John Travolta e Samuel L. Jackson têm uma química absurda: Vincent trata o caos como rotina enquanto Jules começa a questionar a própria vida. Uma conversa sobre hambúrguer pode dividir espaço com uma execução e, estranhamente, funciona. Reflexão: mudança começa quando alguém percebe que continuar sendo a mesma pessoa também é uma escolha.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/pulp-fiction/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/4/4/4/51444-pulp-fiction-0-600-0-900-crop.jpg?v=dee19a8077"
+  },
+  {
+    "titulo": "Taxi Driver",
+    "ano": 1976,
+    "nota": 4.5,
+    "categoria": "top",
+    "review": "Scorsese coloca a câmera dentro da cabeça de Travis Bickle e rapidamente fica claro que não era uma cabeça muito saudável para visitar. Robert De Niro faz Travis ser solitário, patético, ameaçador e humano ao mesmo tempo. Jodie Foster, ainda muito jovem, entrega uma presença impressionante. De Niro e Scorsese ainda fariam Raging Bull, Goodfellas e Casino juntos. Reflexão: isolamento prolongado pode transformar ressentimento em uma visão distorcida do mundo.",
+    "data_assistido": null,
+    "link": "https://letterboxd.com/aleffcristian/film/taxi-driver/",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/9/4/7/51947-taxi-driver-0-600-0-900-crop.jpg?v=3ae07cca2d"
   }
 ]

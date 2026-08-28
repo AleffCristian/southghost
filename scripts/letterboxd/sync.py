@@ -27,10 +27,10 @@ class DescriptionParser(HTMLParser):
         self.poster = atributos.get("src")
 
     def handle_data(self, data):
-        text = data.strip()
+        texto = data.strip()
 
-        if text:
-            self.parts.append(text)
+        if texto:
+            self.parts.append(texto)
 
     def get_review(self):
         return " ".join(self.parts)
@@ -115,6 +115,45 @@ def processar_rss(xml_data):
     return filmes
 
 
+def carregar_filmes_existentes():
+    if not OUTPUT_FILE.exists():
+        return []
+
+    try:
+        return json.loads(
+            OUTPUT_FILE.read_text(encoding="utf-8")
+        )
+    except json.JSONDecodeError:
+        return []
+
+
+def mesclar_filmes(filmes_existentes, filmes_novos):
+    filmes_por_link = {}
+
+    for filme in filmes_existentes:
+        link = filme.get("link")
+
+        if link:
+            filmes_por_link[link] = filme
+
+    for filme in filmes_novos:
+        link = filme.get("link")
+
+        if not link:
+            continue
+
+        filmes_por_link[link] = filme
+
+    filmes = list(filmes_por_link.values())
+
+    filmes.sort(
+        key=lambda filme: filme.get("data_assistido") or "",
+        reverse=True,
+    )
+
+    return filmes
+
+
 def salvar_filmes(filmes):
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
 
@@ -129,11 +168,23 @@ def salvar_filmes(filmes):
 
 
 def main():
+    filmes_existentes = carregar_filmes_existentes()
     xml_data = buscar_rss()
-    filmes = processar_rss(xml_data)
+    filmes_novos = processar_rss(xml_data)
+
+    filmes = mesclar_filmes(
+        filmes_existentes,
+        filmes_novos,
+    )
+
     salvar_filmes(filmes)
 
-    print(f"{len(filmes)} filme(s) sincronizado(s).")
+    print(
+        f"{len(filmes_novos)} filme(s) recebido(s) do RSS."
+    )
+    print(
+        f"{len(filmes)} filme(s) mantido(s) no total."
+    )
 
 
 if __name__ == "__main__":
