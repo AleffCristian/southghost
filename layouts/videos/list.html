@@ -79,8 +79,9 @@
             class="sg-video-category"
             type="button"
             data-category-link="{{ .categoria }}"
+            aria-label="Filtrar pela categoria {{ .categoria_nome }}"
           >
-            {{ .categoria_nome }}
+            #{{ .categoria_nome }}
           </button>
 
         </div>
@@ -109,6 +110,8 @@
 .sg-videos-header h1 {
   margin-bottom: 0.5rem;
 }
+
+/* Filtros */
 
 .sg-video-filters {
   display: flex;
@@ -140,11 +143,15 @@
   font-weight: 600;
 }
 
+/* Grade */
+
 .sg-video-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem;
 }
+
+/* Card */
 
 .sg-video-card {
   min-width: 0;
@@ -171,6 +178,8 @@
   text-decoration: none;
 }
 
+/* Thumbnail */
+
 .sg-video-thumbnail {
   display: block;
 
@@ -179,6 +188,8 @@
 
   object-fit: cover;
 }
+
+/* Informações */
 
 .sg-video-info {
   padding: 0.9rem 0.9rem 0;
@@ -205,37 +216,57 @@
   opacity: 0.75;
 }
 
+/* Categoria */
+
 .sg-video-category-wrap {
   padding: 0 0.9rem 0.9rem;
 }
 
 .sg-video-category {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
 
   margin-top: 0.75rem;
-  padding: 0;
+  padding: 0.32rem 0.6rem;
 
-  border: 0;
-  background: none;
+  border: 1px solid rgba(127, 127, 127, 0.35);
+  border-radius: 999px;
+
+  background: rgba(127, 127, 127, 0.08);
 
   color: inherit;
 
   font: inherit;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
+  line-height: 1;
 
-  opacity: 0.7;
+  opacity: 0.9;
 
   cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    opacity 0.15s ease;
 }
 
 .sg-video-category:hover {
   opacity: 1;
-  text-decoration: underline;
+
+  border-color: currentColor;
+
+  background: rgba(127, 127, 127, 0.14);
+
+  text-decoration: none;
 }
+
+/* Filtro */
 
 .sg-video-card.is-hidden {
   display: none;
 }
+
+/* Tablet */
 
 @media (max-width: 900px) {
 
@@ -244,6 +275,8 @@
   }
 
 }
+
+/* Mobile */
 
 @media (max-width: 640px) {
 
@@ -299,6 +332,11 @@ document.addEventListener("DOMContentLoaded", () => {
         active
       );
 
+      button.setAttribute(
+        "aria-pressed",
+        active ? "true" : "false"
+      );
+
     });
 
     cards.forEach((card) => {
@@ -350,6 +388,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   });
+
+  aplicarFiltro("all");
 
 });
 

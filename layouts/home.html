@@ -12,27 +12,54 @@
   {{ $ultimoFilme = index $filmesOrdenados 0 }}
 {{ end }}
 
+{{ $videos := hugo.Data.videos }}
+{{ $ultimoVideo := false }}
+
+{{ if gt (len $videos) 0 }}
+  {{ $videosOrdenados := sort $videos "publicado_em" "desc" }}
+  {{ $ultimoVideo = index $videosOrdenados 0 }}
+{{ end }}
+
 <div class="sg-shell">
 
   <main class="sg-main">
 
     <div class="sg-view-switcher" role="group" aria-label="Modo de visualização">
-      <button class="sg-view-button is-active" type="button" data-view="list" aria-pressed="true">
+
+      <button
+        class="sg-view-button is-active"
+        type="button"
+        data-view="list"
+        aria-pressed="true"
+      >
         <span aria-hidden="true">☰</span>
         Lista
       </button>
 
-      <button class="sg-view-button" type="button" data-view="grid" aria-pressed="false">
+      <button
+        class="sg-view-button"
+        type="button"
+        data-view="grid"
+        aria-pressed="false"
+      >
         <span aria-hidden="true">▦</span>
         Grade
       </button>
+
     </div>
 
     {{ if gt (len $featured) 0 }}
-      <section class="sg-featured" aria-labelledby="sg-featured-title">
+
+      <section
+        class="sg-featured"
+        aria-labelledby="sg-featured-title"
+      >
 
         <div class="sg-featured-header">
-          <h2 id="sg-featured-title">Destaques</h2>
+
+          <h2 id="sg-featured-title">
+            Destaques
+          </h2>
 
           <button
             class="sg-featured-toggle"
@@ -42,78 +69,170 @@
           >
             Mostrar
           </button>
+
         </div>
 
-        <div class="sg-featured-content" id="sg-featured-content" hidden>
+        <div
+          class="sg-featured-content"
+          id="sg-featured-content"
+          hidden
+        >
+
           {{ range $featured }}
+
             <article class="sg-featured-post">
-              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+
+              <a href="{{ .RelPermalink }}">
+                {{ .Title }}
+              </a>
 
               {{ with .Description }}
                 <p>{{ . }}</p>
               {{ end }}
+
             </article>
+
           {{ end }}
+
         </div>
 
       </section>
+
     {{ end }}
 
     <div class="sg-archive" data-archive>
 
-      {{ if $ultimoFilme }}
-        <section class="sg-month sg-filmes-feed" id="filmes">
+      {{ if or $ultimoFilme $ultimoVideo }}
+
+        <section
+          class="sg-month sg-updates-feed"
+          id="atualizacoes"
+        >
 
           <h1>Atualizações</h1>
 
           <div class="sg-posts">
 
-            <article class="sg-post">
-              <span class="sg-post-marker" aria-hidden="true">◆</span>
+            {{ if $ultimoFilme }}
 
-              <div class="sg-post-body">
+              <article class="sg-post">
 
-                <h2>
-                  <a href="{{ "filmes/" | relURL }}">
-                    Avaliações/Recomendações de Filmes
-                  </a>
-                </h2>
+                <span
+                  class="sg-post-marker"
+                  aria-hidden="true"
+                >
+                  ◆
+                </span>
 
-                <p class="sg-post-description">
-                  Último filme:
-                  <strong>{{ $ultimoFilme.titulo }}</strong>
+                <div class="sg-post-body">
 
-                  {{ with $ultimoFilme.ano }}
-                    ({{ . }})
-                  {{ end }}
+                  <h2>
 
-                  {{ with $ultimoFilme.nota }}
-                    — {{ . }}/5
-                  {{ end }}
+                    <a href="{{ "filmes/" | relURL }}">
+                      Avaliações/Recomendações de Filmes
+                    </a>
 
-                  {{ if eq $ultimoFilme.categoria "top" }}
-                    · Filme Top
-                  {{ else if eq $ultimoFilme.categoria "existe" }}
-                    · Filme que Existe
-                  {{ else if eq $ultimoFilme.categoria "lixo" }}
-                    · Filme Lixo
-                  {{ end }}
-                </p>
+                  </h2>
 
-                <div class="sg-tags">
-                  <span>#Filmes</span>
+                  <p class="sg-post-description">
+
+                    Último filme:
+
+                    <strong>
+                      {{ $ultimoFilme.titulo }}
+                    </strong>
+
+                    {{ with $ultimoFilme.ano }}
+                      ({{ . }})
+                    {{ end }}
+
+                    {{ with $ultimoFilme.nota }}
+                      — {{ . }}/5
+                    {{ end }}
+
+                    {{ if eq $ultimoFilme.categoria "top" }}
+                      · Filme Top
+                    {{ else if eq $ultimoFilme.categoria "existe" }}
+                      · Filme que Existe
+                    {{ else if eq $ultimoFilme.categoria "lixo" }}
+                      · Filme Lixo
+                    {{ end }}
+
+                  </p>
+
+                  <div class="sg-tags">
+                    <span>#Filmes</span>
+                  </div>
+
                 </div>
 
-              </div>
-            </article>
+              </article>
+
+            {{ end }}
+
+            {{ if $ultimoVideo }}
+
+              <article class="sg-post">
+
+                <span
+                  class="sg-post-marker"
+                  aria-hidden="true"
+                >
+                  ◆
+                </span>
+
+                <div class="sg-post-body">
+
+                  <h2>
+
+                    <a href="{{ "videos/" | relURL }}">
+                      Vídeos
+                    </a>
+
+                  </h2>
+
+                  <p class="sg-post-description">
+
+                    Vídeo recente:
+
+                    <strong>
+                      {{ $ultimoVideo.titulo }}
+                    </strong>
+
+                    {{ with $ultimoVideo.canal }}
+                      — {{ . }}
+                    {{ end }}
+
+                  </p>
+
+                  <div class="sg-tags">
+
+                    <span>#Vídeos</span>
+
+                    {{ with $ultimoVideo.categoria_nome }}
+                      <span>#{{ . }}</span>
+                    {{ end }}
+
+                  </div>
+
+                </div>
+
+              </article>
+
+            {{ end }}
 
           </div>
+
         </section>
+
       {{ end }}
 
       {{ range ($posts.GroupByDate "2006 - January") }}
 
-        <section class="sg-month" id="{{ .Key | urlize }}">
+        <section
+          class="sg-month"
+          id="{{ .Key | urlize }}"
+        >
 
           <h1>{{ .Key }}</h1>
 
@@ -122,36 +241,52 @@
             {{ range .Pages }}
 
               <article class="sg-post">
-                <span class="sg-post-marker" aria-hidden="true">◆</span>
+
+                <span
+                  class="sg-post-marker"
+                  aria-hidden="true"
+                >
+                  ◆
+                </span>
 
                 <div class="sg-post-body">
 
                   <h2>
+
                     <a href="{{ .RelPermalink }}">
                       {{ .Title }}
                     </a>
+
                   </h2>
 
                   {{ with .Description }}
+
                     <p class="sg-post-description">
                       {{ . }}
                     </p>
+
                   {{ end }}
 
                   {{ with .Params.tags }}
+
                     <div class="sg-tags">
+
                       {{ range . }}
                         <span>#{{ . }}</span>
                       {{ end }}
+
                     </div>
+
                   {{ end }}
 
                 </div>
+
               </article>
 
             {{ end }}
 
           </div>
+
         </section>
 
       {{ end }}
@@ -160,20 +295,29 @@
 
   </main>
 
-  <aside class="sg-sidebar" aria-label="Arquivo por mês">
+  <aside
+    class="sg-sidebar"
+    aria-label="Arquivo por mês"
+  >
 
     <h2>Nesta página</h2>
 
     <nav>
 
-      {{ if $ultimoFilme }}
-        <a href="#filmes">Filmes</a>
+      {{ if or $ultimoFilme $ultimoVideo }}
+
+        <a href="#atualizacoes">
+          Atualizações
+        </a>
+
       {{ end }}
 
       {{ range ($posts.GroupByDate "2006 - January") }}
+
         <a href="#{{ .Key | urlize }}">
           {{ .Key }}
         </a>
+
       {{ end }}
 
     </nav>
