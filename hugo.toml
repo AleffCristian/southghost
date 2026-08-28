@@ -68,34 +68,34 @@ enableRobotsTXT = true
 
 [menu]
 
-  [[menu.main]]
-    identifier = "blog"
-    name = "Blog"
-    pageRef = "/blog"
-    weight = 1
-
-  [[menu.main]]
+    [[menu.main]]
     identifier = "filmes"
     name = "Filmes"
     pageRef = "/filmes"
     weight = 2
 
   [[menu.main]]
-    identifier = "sobre"
-    name = "Sobre"
-    pageRef = "/sobre"
+    identifier = "videos"
+    name = "Vídeos"
+    pageRef = "/videos"
     weight = 3
 
   [[menu.main]]
-    name = "Buscar"
+    identifier = "sobre"
+    name = "Sobre"
+    pageRef = "/sobre"
     weight = 4
+
+  [[menu.main]]
+    name = "Buscar"
+    weight = 5
 
     [menu.main.params]
       type = "search"
 
   [[menu.main]]
     name = "Tema"
-    weight = 5
+    weight = 6
 
     [menu.main.params]
       type = "theme-toggle"
