@@ -2,7 +2,7 @@
 title: "O que é Southghost?"
 date: 2026-08-26
 description: "Meu Novo Blog - Como Eu Fiz"
-featured: false
+featured: true
 tags:
   - Blog
   - Pessoal
