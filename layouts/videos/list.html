@@ -13,6 +13,7 @@
   </header>
 
   <nav class="sg-video-filters" aria-label="Categorias de vídeos">
+
     <button class="sg-video-filter is-active" data-filter="all">
       Todos
     </button>
@@ -32,6 +33,7 @@
     <button class="sg-video-filter" data-filter="goats">
       GOATs
     </button>
+
   </nav>
 
   <div class="sg-video-grid">
@@ -44,6 +46,7 @@
       >
 
         <a
+          class="sg-video-link"
           href="{{ .url }}"
           target="_blank"
           rel="noopener noreferrer"
@@ -66,16 +69,21 @@
               {{ .canal }}
             </p>
 
- <button
-  class="sg-video-category"
-  type="button"
-  data-category-link="{{ .categoria }}"
->
-  {{ .categoria_nome }}
-</button>
           </div>
 
         </a>
+
+        <div class="sg-video-category-wrap">
+
+          <button
+            class="sg-video-category"
+            type="button"
+            data-category-link="{{ .categoria }}"
+          >
+            {{ .categoria_nome }}
+          </button>
+
+        </div>
 
       </article>
 
@@ -109,10 +117,6 @@
   margin-bottom: 2rem;
 }
 
-.sg-video-filters::-webkit-scrollbar {
-  display: none;
-}
-
 .sg-video-filter {
   flex: 0 0 auto;
 
@@ -122,10 +126,13 @@
   border-radius: 8px;
 
   background: transparent;
-
   color: inherit;
 
   cursor: pointer;
+}
+
+.sg-video-filter:hover {
+  border-color: currentColor;
 }
 
 .sg-video-filter.is-active {
@@ -135,10 +142,7 @@
 
 .sg-video-grid {
   display: grid;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem;
 }
 
@@ -146,13 +150,21 @@
   min-width: 0;
 
   border: 1px solid rgba(127, 127, 127, 0.25);
-
   border-radius: 10px;
 
   overflow: hidden;
+
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease;
 }
 
-.sg-video-card a {
+.sg-video-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(127, 127, 127, 0.5);
+}
+
+.sg-video-link {
   display: block;
 
   color: inherit;
@@ -163,14 +175,13 @@
   display: block;
 
   width: 100%;
-
   aspect-ratio: 16 / 9;
 
   object-fit: cover;
 }
 
 .sg-video-info {
-  padding: 0.9rem;
+  padding: 0.9rem 0.9rem 0;
 }
 
 .sg-video-title {
@@ -191,12 +202,16 @@
   margin: 0.45rem 0 0;
 
   font-size: 0.85rem;
-
   opacity: 0.75;
+}
+
+.sg-video-category-wrap {
+  padding: 0 0.9rem 0.9rem;
 }
 
 .sg-video-category {
   display: inline-block;
+
   margin-top: 0.75rem;
   padding: 0;
 
@@ -204,9 +219,12 @@
   background: none;
 
   color: inherit;
+
+  font: inherit;
   font-size: 0.75rem;
 
   opacity: 0.7;
+
   cursor: pointer;
 }
 
@@ -222,8 +240,7 @@
 @media (max-width: 900px) {
 
   .sg-video-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
 }
@@ -249,11 +266,16 @@
     grid-template-columns: 1fr;
   }
 
+  .sg-video-card:hover {
+    transform: none;
+  }
+
 }
 
 </style>
 
 <script>
+
 document.addEventListener("DOMContentLoaded", () => {
 
   const filters =
@@ -265,34 +287,45 @@ document.addEventListener("DOMContentLoaded", () => {
   const categoryLinks =
     document.querySelectorAll("[data-category-link]");
 
+  function aplicarFiltro(selected) {
+
+    filters.forEach((button) => {
+
+      const active =
+        button.dataset.filter === selected;
+
+      button.classList.toggle(
+        "is-active",
+        active
+      );
+
+    });
+
+    cards.forEach((card) => {
+
+      const category =
+        card.dataset.category;
+
+      const visible =
+        selected === "all" ||
+        selected === category;
+
+      card.classList.toggle(
+        "is-hidden",
+        !visible
+      );
+
+    });
+
+  }
+
   filters.forEach((filter) => {
 
     filter.addEventListener("click", () => {
 
-      const selected =
-        filter.dataset.filter;
-
-      filters.forEach((button) => {
-        button.classList.remove("is-active");
-      });
-
-      filter.classList.add("is-active");
-
-      cards.forEach((card) => {
-
-        const category =
-          card.dataset.category;
-
-        const visible =
-          selected === "all" ||
-          selected === category;
-
-        card.classList.toggle(
-          "is-hidden",
-          !visible
-        );
-
-      });
+      aplicarFiltro(
+        filter.dataset.filter
+      );
 
     });
 
@@ -300,24 +333,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   categoryLinks.forEach((link) => {
 
-    link.addEventListener("click", (event) => {
-
-      event.preventDefault();
-      event.stopPropagation();
+    link.addEventListener("click", () => {
 
       const category =
         link.dataset.categoryLink;
 
-      const targetFilter =
-        document.querySelector(
-          `.sg-video-filter[data-filter="${category}"]`
-        );
-
-      if (!targetFilter) {
-        return;
-      }
-
-      targetFilter.click();
+      aplicarFiltro(category);
 
       document
         .querySelector(".sg-video-filters")
@@ -331,6 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
 </script>
 
 {{ end }}
