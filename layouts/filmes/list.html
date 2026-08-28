@@ -33,6 +33,42 @@
       </p>
     </header>
 
+    <div class="sg-filmes-filtros" aria-label="Filtrar filmes">
+
+      <button
+        class="sg-filmes-filtro is-active"
+        type="button"
+        data-filter="todos"
+      >
+        Todos
+      </button>
+
+      <button
+        class="sg-filmes-filtro"
+        type="button"
+        data-filter="lixo"
+      >
+        Filme Lixo
+      </button>
+
+      <button
+        class="sg-filmes-filtro"
+        type="button"
+        data-filter="existe"
+      >
+        Filme que Existe
+      </button>
+
+      <button
+        class="sg-filmes-filtro"
+        type="button"
+        data-filter="top"
+      >
+        Filme Top
+      </button>
+
+    </div>
+
     {{ range $categoria := $categorias }}
 
       {{ $filmesCategoria := where $filmes "categoria" $categoria.id }}
@@ -40,6 +76,7 @@
       <section
         class="sg-filmes-categoria"
         id="categoria-{{ $categoria.id }}"
+        data-categoria="{{ $categoria.id }}"
       >
 
         <header class="sg-filmes-categoria-header">
@@ -78,22 +115,36 @@
 
                 <div class="sg-filme-conteudo">
 
-                  <div class="sg-filme-titulo">
-                    <h3>{{ $filme.titulo }}</h3>
+                  <div class="sg-filme-topo">
 
-                    {{ with $filme.ano }}
-                      <span>{{ . }}</span>
-                    {{ end }}
-                  </div>
+                    <div class="sg-filme-titulo">
 
-                  {{ with $filme.nota }}
-                    <div
-                      class="sg-filme-nota"
-                      aria-label="Nota {{ . }} de 5"
-                    >
-                      {{ . }}/5
+                      <h3>
+                        <a
+                          href="{{ $filme.link }}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {{ $filme.titulo }}
+                        </a>
+                      </h3>
+
+                      {{ with $filme.ano }}
+                        <span>{{ . }}</span>
+                      {{ end }}
+
                     </div>
-                  {{ end }}
+
+                    {{ with $filme.nota }}
+                      <div
+                        class="sg-filme-nota"
+                        aria-label="Nota {{ . }} de 5"
+                      >
+                        {{ . }}/5
+                      </div>
+                    {{ end }}
+
+                  </div>
 
                   {{ with $filme.review }}
                     <p class="sg-filme-review">
@@ -101,22 +152,20 @@
                     </p>
                   {{ end }}
 
-                  <div class="sg-filme-meta">
+                  <div class="sg-filme-rodape">
+
+                    <button
+                      class="sg-filme-categoria-tag"
+                      type="button"
+                      data-target="categoria-{{ $categoria.id }}"
+                    >
+                      #{{ $categoria.titulo }}
+                    </button>
 
                     {{ with $filme.data_assistido }}
-                      <span>
-                        Assistido em {{ time.Format "02/01/2006" . }}
+                      <span class="sg-filme-data">
+                        {{ time.Format "02/01/2006" . }}
                       </span>
-                    {{ end }}
-
-                    {{ with $filme.link }}
-                      <a
-                        href="{{ . }}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Ver no Letterboxd
-                      </a>
                     {{ end }}
 
                   </div>
@@ -163,6 +212,7 @@
         {{ if $filmesCategoria }}
 
           <ul>
+
             {{ range $filme := $filmesCategoria }}
 
               {{ $filmeID := printf "%s-%v" ($filme.titulo | urlize) $filme.ano }}
@@ -174,6 +224,7 @@
               </li>
 
             {{ end }}
+
           </ul>
 
         {{ else }}
@@ -189,5 +240,59 @@
   </aside>
 
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const filtros = document.querySelectorAll(".sg-filmes-filtro")
+  const categorias = document.querySelectorAll(".sg-filmes-categoria")
+  const tags = document.querySelectorAll(".sg-filme-categoria-tag")
+
+  filtros.forEach((botao) => {
+    botao.addEventListener("click", () => {
+      const filtro = botao.dataset.filter
+
+      filtros.forEach((item) => {
+        item.classList.remove("is-active")
+      })
+
+      botao.classList.add("is-active")
+
+      categorias.forEach((categoria) => {
+        const categoriaID = categoria.dataset.categoria
+
+        categoria.hidden =
+          filtro !== "todos" &&
+          filtro !== categoriaID
+      })
+    })
+  })
+
+  tags.forEach((botao) => {
+    botao.addEventListener("click", () => {
+      const targetID = botao.dataset.target
+      const target = document.getElementById(targetID)
+
+      const categoriaID = targetID.replace("categoria-", "")
+
+      filtros.forEach((item) => {
+        item.classList.toggle(
+          "is-active",
+          item.dataset.filter === categoriaID
+        )
+      })
+
+      categorias.forEach((categoria) => {
+        categoria.hidden =
+          categoria.dataset.categoria !== categoriaID
+      })
+
+      target?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      })
+    })
+  })
+})
+</script>
 
 {{ end }}
