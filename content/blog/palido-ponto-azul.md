@@ -9,16 +9,11 @@ tags:
   - Sociedade
 featured: false
 draft: false
+images:
+  - "/imagens/posts/palido-ponto-azul/capa-palido-ponto-azul.webp"
 ---
 
-<!--
-IMAGEM 1 — CAPA
-Salve em: static/imagens/posts/palido-ponto-azul/
-Renomeie para: capa-palido-ponto-azul.webp
-Sugestão: a fotografia Pálido Ponto Azul, com a Terra quase imperceptível no espaço.
-Depois de salvar, remova os marcadores de comentário desta linha:
 ![A Terra vista como um pequeno ponto de luz no espaço](/imagens/posts/palido-ponto-azul/capa-palido-ponto-azul.webp "O Pálido Ponto Azul fotografado pela Voyager 1")
--->
 
 Daqui a cem anos, provavelmente ninguém se lembrará de você. Daqui a mil, seu nome terá desaparecido. Daqui a um milhão, talvez nem exista mais algo que possa ser chamado de humanidade.
 
@@ -36,14 +31,7 @@ A gravidade e a velocidade alteram a passagem do tempo. Próximo de um objeto ex
 
 É nesse ponto que a curiosidade científica começa a se transformar em crise existencial.
 
-<!--
-IMAGEM 2 — BURACO NEGRO E DILATAÇÃO TEMPORAL
-Salve em: static/imagens/posts/palido-ponto-azul/
-Renomeie para: buraco-negro-dilatacao-temporal.webp
-Sugestão: representação de uma pessoa ou nave observando um buraco negro.
-Depois de salvar, remova os marcadores de comentário desta linha:
 ![Representação de um buraco negro distorcendo o espaço ao seu redor](/imagens/posts/palido-ponto-azul/buraco-negro-dilatacao-temporal.webp "Perto de objetos extremamente massivos, o tempo não passa da mesma maneira")
--->
 
 ## O problema de olhar para cima
 
@@ -65,15 +53,6 @@ Não sou o único vivendo assim. Há estudantes passando os dias esgotados, tent
 
 Quando todo descanso produz culpa, alguma coisa está errada.
 
-<!--
-IMAGEM 3 — ROTINA
-Salve em: static/imagens/posts/palido-ponto-azul/
-Renomeie para: rotina-trabalho-faculdade.webp
-Sugestão: foto noturna dentro de um ônibus, metrô ou rua vazia durante a volta da faculdade.
-Depois de salvar, remova os marcadores de comentário desta linha:
-![Uma viagem noturna depois de um dia dividido entre trabalho e faculdade](/imagens/posts/palido-ponto-azul/rotina-trabalho-faculdade.webp "Quando o único tempo livre começa depois da meia-noite")
--->
-
 Em outro texto, pretendo falar sobre como parte do ensino brasileiro está preparando pessoas para cumprir tarefas e repetir informações, não para pensar. Ou, dizendo de maneira menos educada: como estamos formando idiotas diplomados.
 
 ## A corrida dos ratos
@@ -94,14 +73,7 @@ Talvez o problema não seja trabalhar ou estudar. O problema é aceitar automati
 
 Em 1990, a sonda Voyager 1 fotografou a Terra a aproximadamente 6 bilhões de quilômetros de distância. Na imagem, nosso planeta aparece como um pequeno ponto iluminado, quase perdido no meio da escuridão: o famoso **Pálido Ponto Azul**.
 
-<!--
-IMAGEM 4 — POSIÇÃO DA TERRA NA FOTOGRAFIA
-Salve em: static/imagens/posts/palido-ponto-azul/
-Renomeie para: terra-ponto-quase-invisivel.webp
-Sugestão: versão ampliada da fotografia da Voyager com uma seta ou círculo discreto indicando a Terra.
-Depois de salvar, remova os marcadores de comentário desta linha:
 ![A Terra quase invisível em um raio de luz fotografado pela Voyager 1](/imagens/posts/palido-ponto-azul/terra-ponto-quase-invisivel.webp "Tudo o que conhecemos aconteceu naquele ponto")
--->
 
 Naquele ponto minúsculo aconteceram todas as guerras, paixões, descobertas, religiões, impérios, humilhações e disputas de poder da nossa história. Todas as pessoas que se sentiram superiores viveram ali. Todas as pessoas consideradas inferiores também.
 
@@ -117,14 +89,7 @@ Se nossa existência é curta, gastar quase todo o tempo preparando uma vida que
 
 Por um intervalo ridiculamente pequeno, conseguimos observar estrelas, imaginar outros mundos, questionar nossa rotina e perceber o absurdo da própria existência. Somos matéria produzida por estrelas tentando compreender as estrelas.
 
-<!--
-IMAGEM 5 — ENCERRAMENTO
-Salve em: static/imagens/posts/palido-ponto-azul/
-Renomeie para: observando-o-universo.webp
-Sugestão: silhueta de uma pessoa observando o céu estrelado; use uma imagem horizontal e escura.
-Depois de salvar, remova os marcadores de comentário desta linha:
 ![Uma pessoa observando o céu e a imensidão do Universo](/imagens/posts/palido-ponto-azul/observando-o-universo.webp "Matéria produzida por estrelas tentando compreender as estrelas")
--->
 
 Amanhã, provavelmente, tudo continuará igual. O despertador tocará cedo, o trabalho estará esperando e a faculdade continuará cobrando desenvolvimento pessoal de quem mal possui tempo para desenvolver uma noite completa de sono.
 
