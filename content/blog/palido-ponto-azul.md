@@ -7,7 +7,7 @@ tags:
   - Universo
   - Reflexão
   - Sociedade
-featured: false
+featured: true
 draft: false
 images:
   - "/imagens/posts/palido-ponto-azul/capa-palido-ponto-azul.webp"
