@@ -59,6 +59,12 @@ jobs:
         with:
           python-version: "3.x"
 
+      # O workflow de sincronização commita videos.json usando GITHUB_TOKEN.
+      # Esse tipo de push não inicia outro workflow, então o deploy precisa
+      # sincronizar os vídeos no próprio build para nunca publicar dados antigos.
+      - name: Sync YouTube
+        run: python scripts/youtube/sync.py
+
       - name: Sync Letterboxd
         run: python scripts/letterboxd/sync.py
 
