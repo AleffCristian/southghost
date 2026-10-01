@@ -196,7 +196,7 @@ def normalizar_markdown(markdown, entrada):
         "",
     ])
 
-    return "\\n".join(front_matter + [""] + corpo).strip()
+    return "\n".join(front_matter + [""] + corpo).strip()
 
 
 def main():
