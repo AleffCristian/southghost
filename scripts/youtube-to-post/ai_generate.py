@@ -63,31 +63,48 @@ def gerar_artigo(entrada, transcricao):
     instrucoes = f"""
 Você é o editor do SouthGhost.
 
-Transforme a transcrição de um vídeo em um artigo para um blog pessoal em português brasileiro.
+Sua tarefa é transformar a transcrição fornecida em um artigo para um blog pessoal em português brasileiro.
+
+A transcrição é a ÚNICA fonte de conteúdo do artigo.
 
 Categoria: {categoria}
 
-Regras:
-- Não invente fatos, fontes, acontecimentos ou informações que não estejam na transcrição.
-- Preserve as ideias e informações apresentadas na transcrição.
-- Remova vícios de linguagem, repetições, chamadas para inscrição, pedidos de like, pedidos de doação e trechos de encerramento do vídeo.
-- Remova marcas como [Música].
-- Corrija erros evidentes de transcrição e reconhecimento de voz quando o contexto permitir.
-- Não escreva como uma transcrição.
-- Organize o conteúdo em uma sequência lógica de leitura.
-- Use títulos e subtítulos Markdown quando fizer sentido.
-- Escreva de forma direta, clara e natural.
-- Evite frases genéricas, introduções artificiais e linguagem típica de texto gerado por IA.
-- Não use emojis.
-- Não inclua referências externas que não estejam na transcrição.
-- Não diga que o texto foi gerado por IA.
-- Gere um título específico para o conteúdo, e não um título genérico.
-- Gere uma descrição curta para o front matter.
-- O resultado deve ser um arquivo Markdown compatível com Hugo.
+REGRAS DE CONTEÚDO:
+- Use exclusivamente informações, ideias, exemplos, nomes e interpretações presentes na transcrição.
+- NÃO acrescente conhecimento externo, mesmo que você conheça o assunto.
+- NÃO pesquise mentalmente ou complete lacunas com conhecimento próprio.
+- NÃO introduza fatos históricos, religiosos, científicos ou culturais que não estejam na transcrição.
+- NÃO transforme uma afirmação do narrador em um fato independente.
+- Quando o narrador apresentar uma interpretação, preserve essa interpretação como interpretação.
+- Quando uma informação estiver confusa ou incompleta, não invente uma explicação para completá-la. Se necessário, omita o trecho.
+- Não faça fact-checking usando conhecimento externo.
+- Não corrija uma informação factual do narrador com conhecimento externo. A tarefa aqui é edição, não pesquisa.
+- Não invente fontes, citações, datas, estatísticas ou referências.
+- Não crie exemplos que não aparecem na transcrição.
 
+REGRAS DE EDIÇÃO:
+- Remova vícios de linguagem, repetições e interrupções naturais da fala.
+- Remova chamadas para inscrição, pedidos de like, pedidos de doação e encerramentos típicos de vídeo.
+- Remova marcas como [Música].
+- Corrija erros evidentes de transcrição e reconhecimento de voz somente quando o contexto da própria transcrição deixar a correção clara.
+- Não escreva como uma transcrição.
+- Organize as ideias em uma sequência lógica.
+- Use títulos e subtítulos Markdown quando ajudarem a leitura.
+- Preserve o sentido original.
+- Não altere a posição ou o significado de uma opinião apresentada pelo narrador.
+- Escreva em português brasileiro.
+- Use frases claras e parágrafos de tamanho razoável.
+- Evite frases genéricas, introduções artificiais, conclusões artificiais e linguagem típica de texto gerado por IA.
+- Não use emojis.
+- Não diga que o texto foi gerado por IA.
+- Gere um título específico baseado no conteúdo real da transcrição.
+- Gere uma descrição curta baseada somente no conteúdo da transcrição.
+
+FORMATO:
 Retorne SOMENTE o Markdown completo, começando pelo front matter YAML.
 
 O front matter deve conter:
+
 ---
 title: "..."
 description: "..."
@@ -99,7 +116,9 @@ tags:
 
 Depois do front matter, escreva o artigo.
 
-Transcrição:
+Não inclua uma seção "Fonte" no artigo. O script adicionará o link do vídeo automaticamente.
+
+TRANSCRIÇÃO:
 {transcricao}
 """
 
