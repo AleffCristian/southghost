@@ -14,6 +14,8 @@ Histórias de fantasmas, possessões demoníacas, lugares e objetos assombrados 
 
 A teologia pode ser entendida como o estudo sistemático das questões relacionadas a Deus, à espiritualidade e às crenças religiosas.
 
+![Representação](/imagens/posts/demologia/teologiaa.png)
+
 A angeologia, por sua vez, é o ramo que estuda os anjos, suas naturezas, funções e hierarquias. Foi nesse campo que conheci classificações como **tronos, dominações, virtudes, poderes, principados, arcanjos, querubins e serafins**.
 
 Mas o aspecto que mais me chamou atenção foi justamente o lado macabro:
@@ -21,12 +23,13 @@ Mas o aspecto que mais me chamou atenção foi justamente o lado macabro:
 > O estudo dos demônios.
 
 A demonologia, ao contrário da forma como costuma ser apresentada por Hollywood, é o estudo sistemático dos demônios, abrangendo sua natureza, suas origens, influências e representações em diferentes tradições religiosas, mitológicas e culturais.
-
+![Representação](/imagens/posts/demologia/demo.png)
 Embora seja frequentemente associada ao cristianismo, também aparece em tradições do judaísmo, do islamismo, do hinduísmo e do budismo.
 
 O que me interessa aqui é justamente observar como essas figuras foram construídas e reinterpretadas ao longo do tempo.
 
 As interpretações apresentadas pertencem às tradições e aos autores que tratam do assunto. Não significa que todas elas sejam necessariamente uma opinião pessoal.
+
 
 ## O que são os demônios?
 
@@ -41,6 +44,7 @@ A própria palavra "demônio" possui uma história bastante diferente daquela qu
 A palavra vem do grego *daimon*, que originalmente se referia a espíritos inspiradores, sem necessariamente possuir uma conotação maligna. Com o tempo, especialmente pela influência da palavra latina *daemonium*, o termo passou a ser associado exclusivamente a entidades do mal.
 
 Essa associação foi reforçada pelo cristianismo ao longo dos séculos.
+![Representação](/imagens/posts/demologia/a1.png)
 
 ### Judaísmo
 
@@ -57,6 +61,7 @@ Já no islamismo, os **jinn** são criaturas dotadas de livre-arbítrio e capaze
 Segundo essa tradição, foram criados do fogo, enquanto os seres humanos foram criados do barro.
 
 Eles seriam liderados por **Iblis**, que, assim como Lúcifer, desobedeceu a Deus e foi expulso do paraíso.
+![Representação](/imagens/posts/demologia/a2.png)
 
 ### Uma interpretação diferente
 
@@ -75,7 +80,7 @@ Ela assumiu papéis diferentes conforme as crenças e interpretações teológic
 ---
 
 ## Lúcifer, o anjo rebelde
-
+![Representação](/imagens/posts/demologia/3.png)
 Segundo a visão cristã apresentada pela demonologia, o catalisador de todo o mal teria sido o anjo caído **Lúcifer**.
 
 O nome atravessa diferentes épocas e culturas carregando múltiplos significados.
@@ -133,6 +138,7 @@ Na tradição cristã, o diabo é visto como a personificação de todo o mal.
 Com o tempo, sua imagem foi transformada pelo folclore e passou a ser retratada como a de uma criatura vermelha, com chifres, rabo pontiagudo e um tridente.
 
 Esses elementos acabaram se tornando símbolos de poder e tortura.
+![Representação](/imagens/posts/demologia/4.png)
 
 ### O diabo na Idade Média
 
@@ -149,6 +155,7 @@ Nesse mesmo período, o diabo passou a ser associado ao fim dos tempos e visto c
 Também se popularizou a ideia de um demônio tentador que acompanharia cada ser humano para desviá-lo da fé.
 
 O próprio papa chegou a ser chamado de anticristo por seus opositores.
+![Representação](/imagens/posts/demologia/5.png)
 
 ### Judaísmo
 
@@ -171,6 +178,7 @@ Em outras religiões, como o satanismo moderno, o diabo aparece como símbolo de
 Já no zoroastrismo, **Angra Mainyu**, o espírito do mal, teria influenciado a concepção ocidental do diabo como adversário de Deus.
 
 A mesma figura, portanto, pode assumir significados completamente diferentes dependendo da tradição observada.
+![Representação](/imagens/posts/demologia/6.png)
 
 ---
 
@@ -217,6 +225,7 @@ Nos Evangelhos, aparece como símbolo da avareza, representando a impossibilidad
 Com o tempo, traduções e interpretações bíblicas fizeram com que Mamon passasse a ser visto como uma entidade diabólica, associada a demônios e forças malignas.
 
 Ele se tornou um símbolo da corrupção e da influência destrutiva do dinheiro, sendo retratado como um ser que manipula os desejos humanos e usa a ganância para aprisionar almas.
+![Representação](/imagens/posts/demologia/7.png)
 
 ### Asmodeus
 
@@ -233,6 +242,7 @@ Sua figura também é ligada ao demônio **Aeshma**, da mitologia persa, associa
 A presença de Asmodeus no livro de Tobias possui um caráter moral, alertando sobre os perigos do desejo e da inveja.
 
 Sua ligação com a destruição de casamentos fez dele uma figura recorrente em narrativas sobre forças que tentam corromper ou destruir a harmonia humana.
+![Representação](/imagens/posts/demologia/9.png)
 
 ### Beelzebu
 
@@ -251,6 +261,7 @@ Na demonologia cristã, aparece como um dos sete príncipes do inferno e é asso
 Durante a Idade Média, Beelzebu foi retratado como a personificação da decadência e da destruição.
 
 Seu domínio sobre as moscas e a pestilência fez com que fosse descrito como **príncipe dos demônios e senhor das moscas**.
+![Representação](/imagens/posts/demologia/8.png)
 
 ### Leviatã
 
@@ -304,6 +315,7 @@ Apesar da resistência inicial de Moloch, um dos príncipes do inferno, Belphego
 
 Esses demônios também recebem os títulos de **sete reis, sete príncipes do inferno ou sete caídos**.
 
+![Representação](/imagens/posts/demologia/11.png)
 ---
 
 ## Uma segunda hierarquia
@@ -313,6 +325,7 @@ As hierarquias podem mudar de acordo com o autor.
 Em outra classificação, Lúcifer seria o líder máximo, seguido pelos arquiduques **Azazel, Jezebet e Samael**.
 
 A partir daqui, a estrutura muda novamente.
+![Representação](/imagens/posts/demologia/12.png)
 
 ### Azazel
 
@@ -333,7 +346,7 @@ Ele também é vinculado a uma entidade semelhante a **Baphomet**, com aspectos 
 Em algumas lendas, Azazel é retratado como o ex-arcanjo Natanael, que teria se rebelado contra o paraíso para libertar sua amada do inferno.
 
 A busca por ela, somada ao seu poder destrutivo, teria alimentado rumores de que ainda vive entre os humanos tentando encontrá-la.
-
+![Representação](/imagens/posts/demologia/13.png)
 ### Jezebet
 
 Jezebet é conhecida como a senhora das pragas e teria sido uma das arquiduques do inferno, ao lado de Azazel e Samael.
@@ -365,7 +378,7 @@ A hierarquia, então, poderia ser organizada dessa maneira:
 Os arquiduques seriam superiores aos duques, entre os quais estariam os nomes associados aos pecados capitais.
 
 Abaixo deles ficariam as legiões do inferno, os diabretes e outros demônios menores.
-
+![Representação](/imagens/posts/demologia/14.png)
 ---
 
 ## Lilith, Legião e os seres noturnos
@@ -399,6 +412,7 @@ No judaísmo medieval, sua imagem se fortaleceu como a de um demônio sedutor e 
 Alguns relatos afirmam que ela teria se unido ao anjo caído Samael, tornando-se sua esposa e rainha de uma prole demoníaca.
 
 Em outra teoria, Lilith e Lúcifer teriam se unido, e desse relacionamento teriam nascido todos os demônios do inferno.
+![Representação](/imagens/posts/demologia/18.png)
 
 ### Legião
 
@@ -421,6 +435,7 @@ No mundo antigo, conhecer o nome de alguém significava ter certo domínio sobre
 Ao perguntar o nome do demônio, Jesus não apenas buscaria informações, mas também exporia sua natureza e demonstraria seu poder sobre as forças do mal.
 
 A palavra "legião" aparece em outros trechos bíblicos, inclusive quando Jesus afirma que poderia invocar doze legiões de anjos para defendê-lo, reforçando a existência de batalhas espirituais invisíveis.
+![Representação](/imagens/posts/demologia/19.png)
 
 ### Súcubos e íncubos
 
@@ -447,7 +462,7 @@ Durante a Idade Média, o *Malleus Maleficarum*, manual de caça às bruxas, ref
 Em algumas versões da lenda, um súcubo poderia se transformar em íncubo depois de coletar energia masculina, tornando o ciclo ainda mais sombrio e complexo, sem a necessidade de um parceiro masculino.
 
 No Oriente Médio, existe uma variação dessas criaturas conhecida como **al-duice**, que seduz homens infiéis e, em vez de apenas drená-los, desconecta e devora suas vítimas como forma de punição.
-
+![Representação](/imagens/posts/demologia/20.png)
 ---
 
 ## Conclusão
