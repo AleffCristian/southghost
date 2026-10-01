@@ -2,7 +2,7 @@
 title: "Demonologia: uma jornada pelas hierarquias e figuras mais macabras"
 description: "Uma reflexão sobre diferentes conceitos de demônios, Lúcifer, o diabo e as principais figuras da tradição judaico-cristã."
 date: 2026-10-01T14:25:55-03:00
-draft: true
+draft: false
 tags:
   - Reflexivos
   - YouTube
@@ -469,3 +469,7 @@ Mais do que simplesmente uma lista de monstros e demônios, a demonologia mostra
 No fim, talvez seja justamente isso que torne essas histórias tão persistentes.
 
 Elas mudam de nome, de aparência e de significado, mas continuam encontrando espaço na imaginação humana.
+
+## Fonte
+
+[Vídeo no YouTube](https://youtu.be/zUQrqIOgenY?si=_9cRf7cN-PIGYP6j)
