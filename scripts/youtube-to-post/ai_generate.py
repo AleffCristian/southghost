@@ -130,6 +130,15 @@ def main():
         print("[ERRO] Não foi possível extrair o ID do vídeo.")
         raise SystemExit(1)
 
+    output_file = OUTPUT_DIR / f"{entrada['slug']}.md"
+
+    # Verifica antes da chamada à API para não gastar créditos
+    # quando o arquivo de destino já existe.
+    if output_file.exists():
+        print(f"[ERRO] O post já existe: {output_file}")
+        print("O script não sobrescreve posts existentes.")
+        raise SystemExit(1)
+
     transcript_file = TRANSCRIPT_DIR / f"{video_id}.txt"
 
     if not transcript_file.exists():
@@ -161,13 +170,6 @@ def main():
     markdown = gerar_artigo(entrada, transcricao)
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    output_file = OUTPUT_DIR / f"{entrada['slug']}.md"
-
-    if output_file.exists():
-        print(f"[ERRO] O post já existe: {output_file}")
-        print("O script não sobrescreve posts existentes.")
-        raise SystemExit(1)
-
     output_file.write_text(markdown + "\n", encoding="utf-8")
 
     print("[OK] Artigo gerado pela OpenAI.")
