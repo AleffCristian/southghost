@@ -34,3 +34,18 @@ A primeira versão não publica diretamente no `main`.
 - O workflow será iniciado manualmente na primeira versão.
 - Falhas na transcrição ou geração devem interromper o processo.
 - O conteúdo gerado será revisado antes da publicação.
+
+
+## Teste local do gerador
+
+Depois de obter a transcrição:
+
+```powershell
+python scripts/youtube-to-post/generate.py
+```
+
+O script cria um arquivo em `content/blog/<slug>.md` com `draft: true`.
+
+O gerador inicial não usa IA. Ele apenas transforma a transcrição em um rascunho Markdown, preservando o texto original e preparando a estrutura do Hugo.
+
+O arquivo existente nunca é sobrescrito automaticamente.
