@@ -5,3 +5,4 @@ resources/
 Thumbs.db
 
 tmp/
+__pycache__/
