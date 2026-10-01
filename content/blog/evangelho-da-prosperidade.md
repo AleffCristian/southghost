@@ -1,7 +1,7 @@
 ---
 title: "Evangelho da Prosperidade"
 description: "Uma reflexão sobre a relação entre fé, dinheiro, sucesso e a transformação da religião em promessa de prosperidade."
-date: 2026-10-01T16:30:00-03:00
+date: 2026-09-30T16:30:00-03:00
 draft: true
 tags:
   - Religião

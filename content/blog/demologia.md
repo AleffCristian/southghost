@@ -8,7 +8,7 @@ tags:
   - YouTube
 ---
 
-O mundo espiritual sempre me interessou, desde muito cedo.
+O mundo espiritual sempre me interessou, desde muito cedo. 
 
 Histórias de fantasmas, possessões demoníacas, lugares e objetos assombrados despertavam minha curiosidade. Por causa disso, comecei a estudar alguns temas ligados à espiritualidade, passando pela teologia, pela angeologia e, principalmente, pela demonologia.
 
@@ -470,6 +470,3 @@ No fim, talvez seja justamente isso que torne essas histórias tão persistentes
 
 Elas mudam de nome, de aparência e de significado, mas continuam encontrando espaço na imaginação humana.
 
-## Fonte
-
-[Vídeo no YouTube](https://youtu.be/zUQrqIOgenY?si=_9cRf7cN-PIGYP6j)

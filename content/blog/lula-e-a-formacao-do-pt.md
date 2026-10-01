@@ -2,7 +2,7 @@
 title: "Lula e a formação do PT"
 description: "A trajetória de Lula entre o sindicalismo do ABC, a fundação do PT e a redemocratização brasileira."
 date: 2026-10-01T16:00:00-03:00
-draft: true
+draft: false
 tags:
   - História
   - Política

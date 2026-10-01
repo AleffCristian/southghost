@@ -1,7 +1,7 @@
 ---
 title: "O homem como mármore"
 description: "Disciplina, conforto e a ideia de que caráter também precisa ser construído."
-date: 2026-10-01T16:20:00-03:00
+date: 2026-09-29T16:20:00-03:00
 draft: true
 tags:
   - Filosofia
