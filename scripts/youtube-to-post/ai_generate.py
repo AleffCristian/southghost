@@ -99,6 +99,7 @@ REGRAS DE EDIÇÃO:
 - Não diga que o texto foi gerado por IA.
 - Gere um título específico baseado no conteúdo real da transcrição.
 - Gere uma descrição curta baseada somente no conteúdo da transcrição.
+- NÃO repita o título como um cabeçalho H1 após o front matter. O Hugo já exibe o título da página.
 
 FORMATO:
 Retorne SOMENTE o Markdown completo, começando pelo front matter YAML.
@@ -134,6 +135,68 @@ TRANSCRIÇÃO:
         raise SystemExit(1)
 
     return markdown
+
+
+def normalizar_markdown(markdown, entrada):
+    """Ajusta elementos que pertencem ao site e não ao texto gerado pela IA."""
+    linhas = markdown.splitlines()
+
+    if not linhas or linhas[0].strip() != "---":
+        print("[ERRO] Markdown sem front matter válido.")
+        raise SystemExit(1)
+
+    # Encontra o fim do front matter YAML.
+    fim_front_matter = None
+    for indice in range(1, len(linhas)):
+        if linhas[indice].strip() == "---":
+            fim_front_matter = indice
+            break
+
+    if fim_front_matter is None:
+        print("[ERRO] Front matter não foi encerrado corretamente.")
+        raise SystemExit(1)
+
+    front_matter = linhas[:fim_front_matter + 1]
+    corpo = linhas[fim_front_matter + 1:]
+
+    # A data deve ser definida pelo script, não pela IA.
+    if not any(linha.startswith("date:") for linha in front_matter):
+        from datetime import datetime
+        data = datetime.now().astimezone().isoformat(timespec="seconds")
+        insercao = next(
+            (i for i, linha in enumerate(front_matter) if linha.startswith("description:")),
+            1,
+        )
+        front_matter.insert(insercao + 1, f"date: {data}")
+
+    # Remove um H1 inicial caso a IA tenha repetido o título apesar da instrução.
+    titulo = None
+    for linha in front_matter:
+        if linha.startswith("title:"):
+            titulo = linha[len("title:"):].strip().strip('"')
+            break
+
+    while corpo and not corpo[0].strip():
+        corpo.pop(0)
+
+    if titulo and corpo and corpo[0].strip().startswith("# "):
+        h1 = corpo[0].strip()[2:].strip()
+        if h1 == titulo:
+            corpo = corpo[1:]
+
+    while corpo and not corpo[0].strip():
+        corpo.pop(0)
+
+    # A fonte é adicionada de forma determinística pelo script.
+    corpo.extend([
+        "",
+        "## Fonte",
+        "",
+        f"[Vídeo no YouTube]({entrada['url']})",
+        "",
+    ])
+
+    return "\\n".join(front_matter + [""] + corpo).strip()
 
 
 def main():
@@ -187,6 +250,7 @@ def main():
     print("[INFO] Enviando conteúdo para a OpenAI...")
 
     markdown = gerar_artigo(entrada, transcricao)
+    markdown = normalizar_markdown(markdown, entrada)
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     output_file.write_text(markdown + "\n", encoding="utf-8")
