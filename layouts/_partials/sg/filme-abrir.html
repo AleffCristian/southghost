@@ -1,0 +1,42 @@
+{{- /*
+  Link que abre a crítica do filme no painel (via JS na página de Filmes).
+  Sem JS, leva para o Letterboxd.
+  Parâmetros: filme, classe, texto (opcional: se vier, mostra só o texto),
+  categoria (opcional: nome da categoria para o painel).
+*/ -}}
+{{- $filme := .filme -}}
+{{- $nomes := dict "top" "Filme Top" "existe" "Filme que Existe" "lixo" "Filme Lixo" -}}
+{{- $categoria := .categoria | default (index $nomes ($filme.categoria | default "")) -}}
+{{- $nota := "" -}}
+{{- $estrelas := "" -}}
+{{- with $filme.nota -}}
+  {{- $nota = replace (printf "%.1f" (float .)) "." "," -}}
+  {{- $estrelas = partial "sg/estrelas.html" . -}}
+{{- end -}}
+<a
+  class="{{ .classe }}"
+  href="{{ $filme.link }}"
+  target="_blank"
+  rel="noopener noreferrer"
+  data-abrir-filme
+  data-titulo="{{ $filme.titulo }}"
+  data-original="{{ $filme.titulo_original }}"
+  data-ano="{{ $filme.ano }}"
+  data-nota-texto="{{ $nota }}"
+  data-estrelas="{{ $estrelas }}"
+  data-categoria="{{ $categoria }}"
+  data-review="{{ $filme.review }}"
+  data-link="{{ $filme.link }}"
+  data-poster="{{ $filme.poster }}"
+>
+  {{- with .texto -}}
+    {{ . }}
+  {{- else -}}
+    <span class="sg-filme-card-poster">
+      {{ partial "sg/filme-poster.html" (dict "filme" $filme) }}
+      {{ with $nota }}<span class="sg-filme-card-nota">★ {{ . }}</span>{{ end }}
+    </span>
+    <span class="sg-filme-card-titulo">{{ $filme.titulo }}</span>
+    {{ with $filme.ano }}<span class="sg-filme-card-ano">{{ . }}</span>{{ end }}
+  {{- end -}}
+</a>

@@ -1,0 +1,3 @@
+{
+  "_leia": "Comentário curto (\"por que guardei\") para cada vídeo. Chave: o video_id do YouTube. Fica fora de data/videos.json porque a sincronização reescreve aquele arquivo. Exemplo: \"XDOWW7CQmhg\": \"Machado era mais polêmico do que a escola conta.\""
+}

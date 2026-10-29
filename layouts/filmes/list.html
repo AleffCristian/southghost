@@ -1,300 +1,302 @@
 {{ define "main" }}
 
-{{ $filmes := hugo.Data.filmes }}
+{{/*
+  Página de Filmes.
+  Dados: data/filmes.json, gerado por scripts/letterboxd/sync.py.
+  "titulo" já vem em pt-BR; "titulo_original" é o nome do Letterboxd.
+*/}}
+
+{{ $filmes := hugo.Data.filmes | default slice }}
+{{ $limite := 12 }}
 
 {{ $categorias := slice
-  (dict
-    "id" "lixo"
-    "titulo" "Filme Lixo"
-    "descricao" "Tempo de vida sem reembolso."
-  )
-  (dict
-    "id" "existe"
-    "titulo" "Filme que Existe"
-    "descricao" "Você assistiu. Ele acabou. Seguimos."
-  )
-  (dict
-    "id" "top"
-    "titulo" "Filme Top"
-    "descricao" "Vale o tempo."
-  )
+  (dict "id" "top" "titulo" "Filme Top" "descricao" "Vale o tempo.")
+  (dict "id" "existe" "titulo" "Filme que Existe" "descricao" "Você assistiu. Ele acabou. Seguimos.")
+  (dict "id" "lixo" "titulo" "Filme Lixo" "descricao" "Tempo de vida sem reembolso.")
 }}
 
-<div class="sg-filmes-shell">
+{{/* Média das notas */}}
+{{ $soma := 0.0 }}
+{{ $comNota := 0 }}
+{{ range $filmes }}
+  {{ with .nota }}
+    {{ $soma = add $soma . }}
+    {{ $comNota = add $comNota 1 }}
+  {{ end }}
+{{ end }}
 
-  <main class="sg-filmes">
+{{/* Último filme assistido (só os que têm data) */}}
+{{ $comData := where $filmes "data_assistido" "!=" nil }}
+{{ $ultimo := false }}
+{{ with $comData }}
+  {{ $ultimo = index (sort . "data_assistido" "desc") 0 }}
+{{ end }}
 
-    {{ partial "sg/voltar-home.html" . }}
+<div class="sg-midia">
 
-    <header class="sg-filmes-header">
-      <h1>Avaliações/Recomendações de Filmes</h1>
+  {{ partial "sg/voltar-home.html" . }}
 
-      <p>
-        Alguns filmes são ótimos. Alguns existem.
-        Alguns foram um erro.
-      </p>
-    </header>
+  <header class="sg-midia-header">
+    <h1>Filmes</h1>
+    <p class="sg-midia-lead">Alguns filmes são ótimos. Alguns existem. Alguns foram um erro.</p>
+    <p class="sg-midia-stats">
+      {{ len $filmes }} avaliados
+      {{ if $comNota }}
+        · média <span class="sg-estrela">★ {{ replace (printf "%.1f" (div $soma $comNota)) "." "," }}</span>
+      {{ end }}
+      · via <a href="https://letterboxd.com/AleffCristian/" target="_blank" rel="noopener noreferrer">Letterboxd</a>
+    </p>
+  </header>
 
-    <div class="sg-filmes-filtros" aria-label="Filtrar filmes">
+  {{ with $ultimo }}
+    {{ $filme := . }}
+    <section class="sg-filme-destaque" aria-labelledby="sg-destaque-titulo">
+      {{ partial "sg/filme-poster.html" (dict "filme" $filme "classe" "sg-filme-destaque-poster") }}
+      <div class="sg-filme-destaque-info">
+        <p class="sg-midia-rotulo">Assistido por último · {{ time.Format "02/01/2006" $filme.data_assistido }}</p>
+        <h2 id="sg-destaque-titulo">{{ $filme.titulo }}</h2>
+        <p class="sg-filme-meta">
+          {{ with $filme.ano }}{{ . }}{{ end }}
+          {{ if and $filme.titulo_original (ne $filme.titulo_original $filme.titulo) }} · <span lang="en">{{ $filme.titulo_original }}</span>{{ end }}
+          {{ with $filme.nota }} · <span class="sg-estrela">{{ partial "sg/estrelas.html" . }}</span>{{ end }}
+        </p>
+        {{ with $filme.review }}
+          <p class="sg-filme-destaque-review">{{ . | truncate 220 }}</p>
+        {{ end }}
+        <div class="sg-midia-acoes">
+          {{ partial "sg/filme-abrir.html" (dict "filme" $filme "classe" "sg-botao sg-botao-primario" "texto" "Ler crítica") }}
+          <a class="sg-botao" href="{{ $filme.link }}" target="_blank" rel="noopener noreferrer">Letterboxd ↗</a>
+        </div>
+      </div>
+    </section>
+  {{ end }}
 
-      <button
-        class="sg-filmes-filtro is-active"
-        type="button"
-        data-filter="todos"
-      >
-        Todos
+  <div class="sg-midia-barra">
+    <div class="sg-chips" role="group" aria-label="Filtrar filmes">
+      <button class="sg-chip is-active" type="button" data-filter="todos" aria-pressed="true">
+        Todos <span>{{ len $filmes }}</span>
       </button>
-
-      <button
-        class="sg-filmes-filtro"
-        type="button"
-        data-filter="lixo"
-      >
-        Filme Lixo
-      </button>
-
-      <button
-        class="sg-filmes-filtro"
-        type="button"
-        data-filter="existe"
-      >
-        Filme que Existe
-      </button>
-
-      <button
-        class="sg-filmes-filtro"
-        type="button"
-        data-filter="top"
-      >
-        Filme Top
-      </button>
-
+      {{ range $categorias }}
+        {{ $n := len (where $filmes "categoria" .id) }}
+        {{ if $n }}
+          <button class="sg-chip" type="button" data-filter="{{ .id }}" aria-pressed="false">
+            {{ .titulo }} <span>{{ $n }}</span>
+          </button>
+        {{ end }}
+      {{ end }}
     </div>
 
-    {{ range $categoria := $categorias }}
+    <label class="sg-ordenar">
+      Ordenar
+      <select data-ordenar>
+        <option value="recentes">Mais recentes</option>
+        <option value="nota">Maior nota</option>
+        <option value="ano">Ano (mais novo)</option>
+        <option value="az">A–Z</option>
+      </select>
+    </label>
+  </div>
 
-      {{ $filmesCategoria := where $filmes "categoria" $categoria.id }}
-
-      <section
-        class="sg-filmes-categoria"
-        id="categoria-{{ $categoria.id }}"
-        data-categoria="{{ $categoria.id }}"
-      >
-
-        <header class="sg-filmes-categoria-header">
-          <h2>{{ $categoria.titulo }}</h2>
-          <p>{{ $categoria.descricao }}</p>
+  {{ range $categoria := $categorias }}
+    {{ $lista := where $filmes "categoria" $categoria.id }}
+    {{ with $lista }}
+      <section class="sg-filmes-secao" data-categoria="{{ $categoria.id }}" aria-labelledby="sg-cat-{{ $categoria.id }}">
+        <header class="sg-secao-header">
+          <div>
+            <h2 id="sg-cat-{{ $categoria.id }}">{{ $categoria.titulo }}</h2>
+            <p>{{ $categoria.descricao }}</p>
+          </div>
+          <span class="sg-secao-contagem">{{ len . }}</span>
         </header>
 
-        {{ if $filmesCategoria }}
+        <ul class="sg-filmes-grade" data-limite="{{ $limite }}">
+          {{ range $i, $filme := . }}
+            <li
+              class="sg-filme-item"
+              data-ordem="{{ $i }}"
+              data-nota="{{ $filme.nota | default 0 }}"
+              data-ano="{{ $filme.ano | default 0 }}"
+              data-titulo="{{ $filme.titulo }}"
+            >
+              {{ partial "sg/filme-abrir.html" (dict "filme" $filme "classe" "sg-filme-card" "categoria" $categoria.titulo) }}
+            </li>
+          {{ end }}
+        </ul>
 
-          <div class="sg-filmes-grid">
-
-            {{ range $filme := $filmesCategoria }}
-
-              {{ $filmeID := printf "%s-%v" ($filme.titulo | urlize) $filme.ano }}
-
-              <article
-                class="sg-filme-card"
-                id="{{ $filmeID }}"
-              >
-
-                {{ with $filme.poster }}
-                  <a
-                    class="sg-filme-poster-link"
-                    href="{{ $filme.link }}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      class="sg-filme-poster"
-                      src="{{ . }}"
-                      alt="Pôster de {{ $filme.titulo }}"
-                      loading="lazy"
-                    >
-                  </a>
-                {{ end }}
-
-                <div class="sg-filme-conteudo">
-
-                  <div class="sg-filme-topo">
-
-                    <div class="sg-filme-titulo">
-
-                      <h3>
-                        <a
-                          href="{{ $filme.link }}"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {{ $filme.titulo }}
-                        </a>
-                      </h3>
-
-                      {{ with $filme.ano }}
-                        <span>{{ . }}</span>
-                      {{ end }}
-
-                    </div>
-
-                    {{ with $filme.nota }}
-                      <div
-                        class="sg-filme-nota"
-                        aria-label="Nota {{ . }} de 5"
-                      >
-                        {{ . }}/5
-                      </div>
-                    {{ end }}
-
-                  </div>
-
-                  {{ with $filme.review }}
-                    <p class="sg-filme-review">
-                      {{ . }}
-                    </p>
-                  {{ end }}
-
-                  <div class="sg-filme-rodape">
-
-                    <button
-                      class="sg-filme-categoria-tag"
-                      type="button"
-                      data-target="categoria-{{ $categoria.id }}"
-                    >
-                      #{{ $categoria.titulo }}
-                    </button>
-
-                    {{ with $filme.data_assistido }}
-                      <span class="sg-filme-data">
-                        {{ time.Format "02/01/2006" . }}
-                      </span>
-                    {{ end }}
-
-                  </div>
-
-                </div>
-
-              </article>
-
-            {{ end }}
-
-          </div>
-
-        {{ else }}
-
-          <p class="sg-filmes-vazio">
-            Nada por aqui.
-          </p>
-
+        {{ if gt (len .) $limite }}
+          <button class="sg-botao sg-ver-mais" type="button" data-ver-mais data-total="{{ len . }}" hidden>
+            Ver os {{ len . }} filmes
+          </button>
         {{ end }}
-
       </section>
-
     {{ end }}
+  {{ end }}
 
-  </main>
-
-  <aside class="sg-filmes-sidebar">
-
-    <h2>Nesta página</h2>
-
-    {{ range $categoria := $categorias }}
-
-      {{ $filmesCategoria := where $filmes "categoria" $categoria.id }}
-
-      <div class="sg-filmes-sidebar-grupo">
-
-        <a
-          class="sg-filmes-sidebar-categoria"
-          href="#categoria-{{ $categoria.id }}"
-        >
-          {{ $categoria.titulo }}
-        </a>
-
-        {{ if $filmesCategoria }}
-
-          <ul>
-
-            {{ range $filme := $filmesCategoria }}
-
-              {{ $filmeID := printf "%s-%v" ($filme.titulo | urlize) $filme.ano }}
-
-              <li>
-                <a href="#{{ $filmeID }}">
-                  {{ $filme.titulo }}
-                </a>
-              </li>
-
-            {{ end }}
-
-          </ul>
-
-        {{ else }}
-
-          <span class="sg-filmes-sidebar-vazio">—</span>
-
-        {{ end }}
-
-      </div>
-
-    {{ end }}
-
-  </aside>
+  {{ if not $filmes }}
+    <p class="sg-midia-vazio">Nenhum filme por aqui ainda.</p>
+  {{ end }}
 
 </div>
 
+<dialog class="sg-filme-dialog" aria-labelledby="sg-dialog-titulo">
+  <div class="sg-filme-dialog-corpo">
+    <div class="sg-filme-dialog-topo">
+      <img class="sg-filme-dialog-poster" alt="" width="600" height="900" hidden>
+      <div class="sg-filme-dialog-cabecalho">
+        <h2 id="sg-dialog-titulo"></h2>
+        <p class="sg-filme-meta" data-campo="meta"></p>
+        <p class="sg-estrela sg-filme-dialog-nota" data-campo="nota"></p>
+        <span class="sg-tag" data-campo="categoria"></span>
+      </div>
+      <button class="sg-icone-botao" type="button" data-fechar aria-label="Fechar">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <p class="sg-filme-dialog-review" data-campo="review"></p>
+    <p class="sg-filme-dialog-reflexao" data-campo="reflexao" hidden></p>
+    <a class="sg-botao sg-botao-primario sg-botao-bloco" data-campo="link" target="_blank" rel="noopener noreferrer">Ver no Letterboxd ↗</a>
+  </div>
+</dialog>
+
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const filtros = document.querySelectorAll(".sg-filmes-filtro")
-  const categorias = document.querySelectorAll(".sg-filmes-categoria")
-  const tags = document.querySelectorAll(".sg-filme-categoria-tag")
+(() => {
+  const raiz = document.querySelector(".sg-midia")
+  if (!raiz) return
 
-  filtros.forEach((botao) => {
-    botao.addEventListener("click", () => {
-      const filtro = botao.dataset.filter
+  const chips = raiz.querySelectorAll(".sg-chip")
+  const secoes = raiz.querySelectorAll(".sg-filmes-secao")
+  const ordenar = raiz.querySelector("[data-ordenar]")
 
-      filtros.forEach((item) => {
-        item.classList.remove("is-active")
+  // ----- Ver mais / ver menos -----
+  const aplicarLimite = (secao) => {
+    const grade = secao.querySelector(".sg-filmes-grade")
+    const botao = secao.querySelector("[data-ver-mais]")
+    const limite = Number(grade.dataset.limite) || 12
+    const aberto = secao.classList.contains("is-aberta")
+
+    ;[...grade.children].forEach((item, i) => {
+      item.hidden = !aberto && i >= limite
+    })
+
+    if (botao) {
+      botao.hidden = false
+      botao.textContent = aberto ? "Mostrar menos" : `Ver os ${botao.dataset.total} filmes`
+    }
+  }
+
+  secoes.forEach((secao) => {
+    secao.querySelector("[data-ver-mais]")?.addEventListener("click", () => {
+      secao.classList.toggle("is-aberta")
+      aplicarLimite(secao)
+    })
+    aplicarLimite(secao)
+  })
+
+  // ----- Filtros -----
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      const filtro = chip.dataset.filter
+      chips.forEach((c) => {
+        const ativo = c === chip
+        c.classList.toggle("is-active", ativo)
+        c.setAttribute("aria-pressed", String(ativo))
       })
-
-      botao.classList.add("is-active")
-
-      categorias.forEach((categoria) => {
-        const categoriaID = categoria.dataset.categoria
-
-        categoria.hidden =
-          filtro !== "todos" &&
-          filtro !== categoriaID
+      secoes.forEach((secao) => {
+        secao.hidden = filtro !== "todos" && secao.dataset.categoria !== filtro
       })
     })
   })
 
-  tags.forEach((botao) => {
-    botao.addEventListener("click", () => {
-      const targetID = botao.dataset.target
-      const target = document.getElementById(targetID)
+  // ----- Ordenação -----
+  const comparadores = {
+    recentes: (a, b) => a.dataset.ordem - b.dataset.ordem,
+    nota: (a, b) => b.dataset.nota - a.dataset.nota || a.dataset.ordem - b.dataset.ordem,
+    ano: (a, b) => b.dataset.ano - a.dataset.ano || a.dataset.ordem - b.dataset.ordem,
+    az: (a, b) => a.dataset.titulo.localeCompare(b.dataset.titulo, "pt-BR"),
+  }
 
-      const categoriaID = targetID.replace("categoria-", "")
-
-      filtros.forEach((item) => {
-        item.classList.toggle(
-          "is-active",
-          item.dataset.filter === categoriaID
-        )
-      })
-
-      categorias.forEach((categoria) => {
-        categoria.hidden =
-          categoria.dataset.categoria !== categoriaID
-      })
-
-      target?.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      })
+  ordenar?.addEventListener("change", () => {
+    const comparar = comparadores[ordenar.value] || comparadores.recentes
+    secoes.forEach((secao) => {
+      const grade = secao.querySelector(".sg-filmes-grade")
+      ;[...grade.children].sort(comparar).forEach((item) => grade.appendChild(item))
+      aplicarLimite(secao)
     })
   })
-})
+
+  // ----- Crítica em painel -----
+  const dialog = document.querySelector(".sg-filme-dialog")
+  if (!dialog || typeof dialog.showModal !== "function") return
+
+  const campo = (nome) => dialog.querySelector(`[data-campo="${nome}"]`)
+  const poster = dialog.querySelector(".sg-filme-dialog-poster")
+  let abertoPeloHistorico = false
+
+  const abrir = (gatilho) => {
+    const d = gatilho.dataset
+    dialog.querySelector("#sg-dialog-titulo").textContent = d.titulo
+
+    const meta = [d.ano, d.original && d.original !== d.titulo ? d.original : ""].filter(Boolean)
+    campo("meta").textContent = meta.join(" · ")
+    campo("nota").textContent = d.estrelas ? `${d.estrelas}  ${d.notaTexto}` : ""
+    campo("categoria").textContent = d.categoria || ""
+    campo("categoria").hidden = !d.categoria
+
+    // "Reflexão:" vira um bloco destacado, quando existir na crítica.
+    const review = d.review || ""
+    const pos = review.search(/Reflexão:/i)
+    campo("review").textContent = pos > 0 ? review.slice(0, pos).trim() : (review || "Sem crítica escrita.")
+    campo("reflexao").hidden = pos <= 0
+    if (pos > 0) {
+      campo("reflexao").textContent = ""
+      const forte = document.createElement("strong")
+      forte.textContent = "Reflexão: "
+      campo("reflexao").append(forte, review.slice(pos).replace(/^Reflexão:\s*/i, ""))
+    }
+
+    campo("link").href = d.link || "#"
+
+    if (d.poster) {
+      poster.src = d.poster
+      poster.alt = `Pôster de ${d.titulo}`
+      poster.hidden = false
+    } else {
+      poster.hidden = true
+    }
+
+    dialog.showModal()
+    history.pushState({ sgFilme: true }, "")
+    abertoPeloHistorico = true
+  }
+
+  const fechar = () => {
+    if (abertoPeloHistorico) {
+      abertoPeloHistorico = false
+      history.back()
+    }
+    if (dialog.open) dialog.close()
+  }
+
+  document.querySelectorAll("[data-abrir-filme]").forEach((gatilho) => {
+    gatilho.addEventListener("click", (evento) => {
+      if (evento.ctrlKey || evento.metaKey || evento.shiftKey || evento.button === 1) return
+      evento.preventDefault()
+      abrir(gatilho)
+    })
+  })
+
+  dialog.querySelector("[data-fechar]").addEventListener("click", fechar)
+  dialog.addEventListener("click", (evento) => { if (evento.target === dialog) fechar() })
+  dialog.addEventListener("cancel", (evento) => { evento.preventDefault(); fechar() })
+
+  // Botão Voltar do celular fecha o painel em vez de sair da página.
+  window.addEventListener("popstate", () => {
+    if (dialog.open) {
+      abertoPeloHistorico = false
+      dialog.close()
+    }
+  })
+})()
 </script>
 
 {{ end }}

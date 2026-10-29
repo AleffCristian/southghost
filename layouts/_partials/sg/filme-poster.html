@@ -1,0 +1,8 @@
+{{- /* Pôster do filme (capa do Letterboxd) ou um bloco com o título quando não houver capa. */ -}}
+{{- $filme := .filme -}}
+{{- $classe := .classe | default "sg-filme-poster" -}}
+{{- with $filme.poster -}}
+  <img class="{{ $classe }}" src="{{ . }}" alt="Pôster de {{ $filme.titulo }}" width="600" height="900" loading="lazy" decoding="async">
+{{- else -}}
+  <span class="{{ $classe }} sg-poster-vazio" aria-hidden="true">{{ $filme.titulo }}</span>
+{{- end -}}

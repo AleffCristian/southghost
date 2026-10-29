@@ -65,7 +65,12 @@ jobs:
       - name: Sync YouTube
         run: python scripts/youtube/sync.py
 
+      # Títulos em pt-BR: se o secret TMDB_TOKEN (ou TMDB_API_KEY) não existir,
+      # o script usa só data/titulos-br.json e o título original.
       - name: Sync Letterboxd
+        env:
+          TMDB_TOKEN: ${{ secrets.TMDB_TOKEN }}
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
         run: python scripts/letterboxd/sync.py
 
       - name: Setup Pages

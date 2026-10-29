@@ -1,0 +1,5 @@
+{{- /* Nota de 0 a 5 em estrelas: 4.5 -> ★★★★½ */ -}}
+{{- $nota := float . -}}
+{{- $cheias := int (math.Floor $nota) -}}
+{{- $meia := ge (sub $nota $cheias) 0.5 -}}
+{{- strings.Repeat $cheias "★" }}{{ if $meia }}½{{ end -}}
