@@ -1,0 +1,13 @@
+﻿# destino | arquivo no Wikimedia Commons (alternativas separadas por ;) | largura
+# capa.jpg foi recortada a partir de goya-sono-da-razao.jpg; as gravuras de Goya e Hobbes foram reduzidas para 900 px em tons de cinza
+goya-sono-da-razao.jpg | Francisco_José_de_Goya_y_Lucientes_-_The_sleep_of_reason_produces_monsters_(No._43),_from_Los_Caprichos_-_Google_Art_Project.jpg | 960
+waterhouse-diogenes.jpg | John_Waterhouse_-_Diogenes_-_Google_Art_Project.jpg | 960
+bruegel-cegos.jpg | Pieter_Bruegel_the_Elder_(1568)_The_Blind_Leading_the_Blind.jpg | 1280
+david-morte-de-socrates.jpg | David_-_The_Death_of_Socrates.jpg | 1280
+rafael-escola-de-atenas.jpg | Sanzio_01.jpg | 1280
+hobbes-leviata.jpg | Leviathan_by_Thomas_Hobbes.jpg | 960
+sylvestre-saque-de-roma.jpg | Sack_of_Rome_by_the_Visigoths_on_24_August_410_by_JN_Sylvestre_1890.jpg | 1280
+bosch-prestidigitador.jpg | Conjurer_Bosch.jpg | 1280
+goya-duelo-a-garrotazos.jpg | Francisco_de_Goya_y_Lucientes_-_Duelo_a_garrotazos.jpg | 1280
+gerome-diogenes.jpg | Jean-Léon_Gérôme_-_Diogenes_-_Walters_37131.jpg | 1280
+friedrich-monge-a-beira-mar.jpg | Caspar_David_Friedrich_-_Der_Mönch_am_Meer_-_Google_Art_Project.jpg | 1280
