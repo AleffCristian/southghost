@@ -8,7 +8,7 @@ tags:
   - Reflexão
   - Sociedade
 featured: false
-images: ["/imagens/posts/politica-nao-se-mistura-com-filosofia/goya-sono-da-razao.jpg"]
+images: ["/imagens/posts/politica-nao-se-mistura-com-filosofia/capa.jpg"]
 imageZoom: true
 draft: false
 ---
