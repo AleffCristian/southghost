@@ -1,0 +1,8 @@
+﻿# destino | arquivo no Wikimedia Commons | largura
+gerome-pigmaliao.jpg | Jean-Léon_Gérôme,_Pygmalion_and_Galatea,_ca._1890.jpg | 960
+couture-romanos-decadencia.jpg | THOMAS_COUTURE_-_Los_Romanos_de_la_Decadencia_(Museo_de_Orsay,_1847._Óleo_sobre_lienzo,_472_x_772_cm).jpg | 1280
+musashi.jpg | Miyamoto_Musashi_Painting.jpg | 960
+delacroix-marco-aurelio.jpg | Delacroix-Marc_Aurèle-MBA-Lyon.jpg | 1280
+bruegel-cocanha.jpg | Pieter_Bruegel_the_Elder_-_The_Land_of_Cockaigne_-_WGA3507.jpg | 1280
+lariviere-montgisard.jpg | Schlacht_von_Montgisard_2.jpg | 1280
+friedrich-viajante.jpg | Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg | 960

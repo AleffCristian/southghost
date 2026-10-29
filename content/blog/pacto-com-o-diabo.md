@@ -1,12 +1,14 @@
 ---
 title: "O pacto com o diabo"
 description: "De Teófilo e Fausto a Robert Johnson, Xuxa, filmes e jogos: como a ideia de vender a própria alma atravessou séculos."
-date: 2026-10-01T16:10:00-03:00
-draft: true
+date: 2026-10-29T11:00:00-03:00
+draft: false
 tags:
   - História
   - Cultura
   - Reflexivos
+images: ["/imagens/posts/pacto-com-o-diabo/capa.jpg"]
+imageZoom: true
 ---
 
 ## Quanto custa uma alma?
@@ -25,13 +27,23 @@ A própria alma.
 
 O pacto com o diabo é uma das imagens mais persistentes do imaginário ocidental.
 
+![O sabá das bruxas, de Goya](/imagens/posts/pacto-com-o-diabo/goya-aquelarre.jpg)
+
+*O sabá das bruxas. Francisco de Goya, 1797–1798. O bode no centro recebe as oferendas. Repare que ninguém foi arrastado até ali.*
+
+
 ## O diabo como tentação
 
 Dentro da tradição cristã, o diabo aparece associado à tentação.
 
-No deserto, Cristo é apresentado sendo tentado com poder, riqueza e domínio.
+No deserto, segundo os Evangelhos, Cristo é tentado com poder, riqueza e domínio.
 
 Ele recusa.
+
+![A tentação de Cristo na montanha, de Duccio](/imagens/posts/pacto-com-o-diabo/duccio-tentacao.jpg)
+
+*A tentação de Cristo na montanha. Duccio, 1308–1311. O diabo oferece todos os reinos do mundo. Só pede uma coisa em troca.*
+
 
 A ideia é interessante porque o mal não precisa obrigar ninguém.
 
@@ -47,19 +59,43 @@ Basta oferecer aquilo que a pessoa mais deseja.
 
 ## Teófilo e Fausto
 
-Uma das histórias mais antigas associadas ao tema é a de Teófilo de Adana.
+Uma das histórias mais antigas associadas ao tema é a de Teófilo de Adana, um clérigo do século VI.
 
 Segundo a tradição, ele teria feito um acordo para recuperar uma posição de poder.
+
 
 Depois vem Fausto, uma das versões mais conhecidas da mesma ideia.
 
 Fausto busca conhecimento, prazer e experiências que ultrapassem os limites humanos.
+
+![Fausto, gravura de Rembrandt](/imagens/posts/pacto-com-o-diabo/rembrandt-fausto.jpg)
+
+*Fausto. Rembrandt, c. 1652. O estudioso diante de um disco de luz. Até hoje ninguém sabe ao certo o que ele está vendo.*
+
 
 Em diferentes versões, o resultado muda.
 
 Em algumas existe salvação.
 
 Em outras, condenação.
+
+{{< tabs >}}
+{{< tab name="Teófilo" selected=true >}}
+**Lenda medieval** {{< badge content="século VI" color="indigo" >}} {{< badge content="salvo" color="green" >}}
+
+Arrependido, reza à Virgem Maria. O contrato aparece de volta sobre o peito dele e é queimado pelo bispo.
+{{< /tab >}}
+{{< tab name="Marlowe" >}}
+***Doutor Fausto*** {{< badge content="c. 1592" color="indigo" >}} {{< badge content="condenado" color="red" >}}
+
+Fausto vende a alma por 24 anos de poder. No fim, implora por mais tempo. Não recebe.
+{{< /tab >}}
+{{< tab name="Goethe" >}}
+***Fausto*** {{< badge content="1808 e 1832" color="indigo" >}} {{< badge content="salvo" color="green" >}}
+
+Fausto aposta que nada vai satisfazê-lo por completo. No fim, Mefistófeles vem buscar a alma, mas os anjos a levam antes.
+{{< /tab >}}
+{{< /tabs >}}
 
 Mas a estrutura continua:
 
@@ -85,7 +121,11 @@ Talento em troca da alma.
 
 Não existe evidência de que Johnson tenha realmente feito um pacto. A ausência de uma explicação definitiva, porém, ajudou a fortalecer a história.
 
-Sua morte aos 27 anos tornou o mito ainda mais poderoso.
+{{< details title="O detalhe que quase ninguém conta" closed="true" >}}
+A história da encruzilhada foi contada antes sobre outro músico de blues, **Tommy Johnson**, sem nenhum parentesco com Robert. Com o tempo, a lenda migrou para o Johnson mais famoso.
+{{< /details >}}
+
+Sua morte em 1938, aos 27 anos, tornou o mito ainda mais poderoso.
 
 ## O Clube dos 27
 
@@ -103,6 +143,10 @@ Isso não significa que exista uma causa sobrenatural.
 
 Significa apenas que o ser humano é muito bom em transformar coincidências em histórias.
 
+{{< callout type="info" >}}
+Em 2011, um estudo publicado no *British Medical Journal* comparou as mortes de mais de mil músicos famosos. Não encontrou nenhum pico de risco aos 27 anos.
+{{< /callout >}}
+
 ## Xuxa e os boatos
 
 No Brasil, a lenda ganhou outra forma com Xuxa.
@@ -113,7 +157,7 @@ Parte dessas histórias envolvia ouvir músicas ao contrário.
 
 Também surgiram histórias envolvendo incêndios, bonecas e supostos acontecimentos sobrenaturais.
 
-Xuxa negou publicamente essas teorias.
+Nenhuma dessas histórias tinha qualquer prova, e Xuxa negou publicamente todas elas.
 
 Ainda assim, o rumor continuou circulando.
 
@@ -123,9 +167,10 @@ Ainda assim, o rumor continuou circulando.
 
 O cinema percebeu que o pacto funciona melhor quando o diabo não precisa ser um monstro.
 
-Em *O Advogado do Diabo*, ele observa, provoca e cria situações para que as pessoas tomem suas próprias decisões.
 
-Em *A Bruxa*, o mal funciona de maneira diferente.
+Em *O Advogado do Diabo* (1997), ele observa, provoca e cria situações para que as pessoas tomem suas próprias decisões.
+
+Em *A Bruxa* (2015), o mal funciona de maneira diferente.
 
 A família se destrói aos poucos por medo, paranoia, violência e escolhas ruins.
 
@@ -135,11 +180,11 @@ Talvez o mal não precise obrigar ninguém.
 
 ## E nos jogos?
 
-*Cuphead* transforma o pacto em uma mecânica de jogo.
+*Cuphead* (2017) transforma o pacto em uma mecânica de jogo.
 
 O protagonista aposta a própria alma, perde e precisa enfrentar uma série de desafios para recuperá-la.
 
-Em *The Witcher 3*, Gaunter O'Dimm apresenta outro tipo de acordo.
+Em *The Witcher 3*, na expansão *Hearts of Stone* (2015), Gaunter O'Dimm apresenta outro tipo de acordo.
 
 Ele oferece exatamente aquilo que alguém deseja.
 
@@ -166,6 +211,11 @@ Trocar tempo por status.
 Trocar liberdade por conforto.
 
 Aceitar qualquer coisa para conseguir um resultado rápido.
+
+![A morte e o avarento, de Hieronymus Bosch](/imagens/posts/pacto-com-o-diabo/bosch-morte-e-avarento.jpg)
+
+*A morte e o avarento (detalhe). Hieronymus Bosch, c. 1485–1490. A morte já está na porta. Um anjo aponta para a cruz. O homem estende a mão para o saco de moedas que o demônio oferece.*
+
 
 Nesse sentido, o diabo pode ser interpretado menos como uma criatura e mais como aquilo que sussurra:
 
