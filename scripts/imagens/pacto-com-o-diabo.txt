@@ -1,0 +1,5 @@
+﻿# destino | arquivo no Wikimedia Commons (alternativas separadas por ;) | largura
+goya-aquelarre.jpg | GOYA_-_El_aquelarre_(Museo_Lázaro_Galdiano,_Madrid,_1797-98).jpg;El_Aquelarre.jpg | 1280
+duccio-tentacao.jpg | Duccio_-_The_Temptation_on_the_Mount.jpg | 960
+rembrandt-fausto.jpg | B270_Rembrandt.jpg | 960
+bosch-morte-e-avarento.jpg | Hieronymus_Bosch_-_Death_and_the_Miser_-_Google_Art_Project.jpg;Hieronymus_Bosch_050.jpg | 960
