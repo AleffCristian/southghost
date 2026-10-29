@@ -1,1 +1,46 @@
-copyright: "© 2026 SouthGhost. Todos os direitos reservados."
+# Textos do tema Hextra em português do Brasil.
+# Base: i18n/pt.yaml do Hextra v0.12.3 (português de Portugal), adaptado.
+
+# Rótulos de acessibilidade (leitores de tela)
+closeBanner: "Fechar aviso"
+menu: "Menu"
+mermaidDiagram: "Diagrama"
+pdfViewer: "Visualizador de PDF"
+permalinkLabel: "Link permanente para esta seção"
+playbackTime: "Tempo de reprodução"
+searchResults: "Resultados da busca"
+skipToContent: "Pular para o conteúdo"
+tableOfContents: "Sumário"
+terminalRecording: "Gravação de terminal"
+togglePageContextMenu: "Abrir ou fechar o menu da página"
+toggleSection: "Abrir ou fechar seção"
+
+# Texto de status
+resultsFound: "%d resultados encontrados"
+
+# Interface
+archives: "Arquivo"
+backToTop: "Voltar ao topo"
+changeLanguage: "Mudar idioma"
+changeTheme: "Mudar tema"
+copy: "Copiar"
+copied: "Copiado!"
+copyAsMarkdown: "Copiar como Markdown"
+copyPage: "Copiar página"
+copyCode: "Copiar código"
+copyright: "SouthGhost, 2026"
+dark: "Escuro"
+editThisPage: "Editar esta página no GitHub"
+lastUpdated: "Atualizado em"
+light: "Claro"
+next: "Próximo"
+noResultsFound: "Nada encontrado. Tente outra palavra."
+onThisPage: "Neste post"
+more: "Mais"
+poweredBy: "Feito com Hextra"
+previous: "Anterior"
+readMore: "Ler o post"
+searchPlaceholder: "Buscar no site"
+system: "Sistema"
+tags: "Assuntos"
+viewAsMarkdown: "Ver como Markdown"

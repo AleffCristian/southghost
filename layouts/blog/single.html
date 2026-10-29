@@ -1,60 +1,187 @@
 {{ define "main" }}
-  <div class="hx:mx-auto hx:flex hextra-max-page-width">
-    {{ partial "sidebar.html" (dict "context" . "disableSidebar" true "displayPlaceholder" true) }}
-    {{ partial "toc.html" . }}
-    <article class="hx:w-full hx:break-words hx:flex hx:min-h-[calc(100vh-var(--navbar-height))] hx:min-w-0 hx:justify-center hx:pb-8 hx:pr-[calc(env(safe-area-inset-right)-1.5rem)]">
-      <main id="content" class="hx:w-full hx:min-w-0 hextra-max-content-width hx:px-6 hx:pt-4 hx:md:px-12">
+
+{{/*
+  Página do blog post (substitui layouts/blog/single.html do Hextra v0.12.3).
+  Mantém do tema: sidebar do celular (menu), sumário lateral no desktop,
+  menu de contexto e comentários. O resto é do SouthGhost.
+*/}}
+
+{{ $capa := "" }}
+{{ with .Params.images }}{{ if reflect.IsSlice . }}{{ $capa = index . 0 }}{{ else }}{{ $capa = . }}{{ end }}{{ end }}
+
+{{/* Se o post já abre com uma imagem logo no começo (geralmente a pintura de onde
+     a capa foi recortada), não repete a capa no topo. */}}
+{{ if strings.Contains .Content "<img" }}
+  {{ $antesDaImagem := index (split .Content "<img") 0 }}
+  {{ if lt (len $antesDaImagem) 1500 }}{{ $capa = "" }}{{ end }}
+{{ end }}
+
+{{/* Anterior (mais antigo) e próximo (mais novo), pela data */}}
+{{ $posts := (where site.RegularPages "Section" "blog").ByDate }}
+{{ $anterior := false }}
+{{ $proximo := false }}
+{{ range $i, $p := $posts }}
+  {{ if eq $p.RelPermalink $.RelPermalink }}
+    {{ if gt $i 0 }}{{ $anterior = index $posts (sub $i 1) }}{{ end }}
+    {{ if lt (add $i 1) (len $posts) }}{{ $proximo = index $posts (add $i 1) }}{{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $relacionados := first 3 (where (site.RegularPages.Related .) "Section" "blog") }}
+
+<div class="sg-progresso" aria-hidden="true"><div class="sg-progresso-barra"></div></div>
+
+<div class="hx:mx-auto hx:flex hextra-max-page-width">
+  {{ partial "sidebar.html" (dict "context" . "disableSidebar" true "displayPlaceholder" true) }}
+  {{ partial "toc.html" . }}
+  <article class="sg-post hx:w-full hx:break-words hx:flex hx:min-h-[calc(100vh-var(--navbar-height))] hx:min-w-0 hx:justify-center hx:pb-8 hx:pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+    <main id="content" class="hx:w-full hx:min-w-0 hextra-max-content-width hx:px-6 hx:pt-4 hx:md:px-12">
+
+      {{ with $capa }}
+        {{ $img := partial "sg/imagem.html" (dict "src" . "larguras" (slice 480 800 1200)) }}
+        <figure class="sg-post-capa">
+          <img src="{{ $img.src }}"{{ with $img.srcset }} srcset="{{ . }}" sizes="(max-width: 768px) 100vw, 720px"{{ end }}{{ with $img.largura }} width="{{ . }}" height="{{ $img.altura }}"{{ end }} alt="" fetchpriority="high" decoding="async">
+        </figure>
+      {{ end }}
+
+      <header class="sg-post-header">
         {{ partial "sg/voltar-home.html" . }}
-        {{ partial "breadcrumb.html" (dict "page" . "enable" true) }}
-        {{ if .Title }}
-        <div class="hx:flex hx:flex-col hx:sm:flex-row hx:items-start hx:sm:items-center hx:sm:justify-between hx:gap-4 hx:mt-2">
-          <h1 class="hx:mb-0 hx:text-4xl hx:font-bold hx:tracking-tight hx:text-slate-900 hx:dark:text-slate-100">{{ .Title }}</h1>
+        {{ with .Params.tags }}
+          <p class="sg-post-assuntos">
+            {{ range $i, $t := . }}{{ if $i }}, {{ end }}<a href="{{ printf "tags/%s/" ($t | urlize) | relLangURL }}">{{ $t }}</a>{{ end }}
+          </p>
+        {{ end }}
+        <div class="sg-post-titulo-linha">
+          <h1>{{ .Title }}</h1>
           {{ partial "components/page-context-menu" . }}
         </div>
-        {{ end }}
-        {{ with .Description }}
-          <p class="hx:mt-4 hx:mb-6 hx:text-lg hx:leading-7 hx:text-gray-600 hx:dark:text-gray-300">{{ . }}</p>
-        {{ end }}
-        <div class="hx:mt-4 hx:mb-16 hx:text-gray-500 hx:dark:text-gray-400 hx:text-sm hx:flex hx:items-center hx:flex-wrap hx:gap-y-2">
-          {{- with $date := .Date }}<span class="hx:mr-1">{{ partial "utils/format-date" $date }}</span>{{ end -}}
-{{- if .ReadingTime }}<span class="hx:mx-1">·</span><span class="hx:ml-1">{{ .ReadingTime }} min de leitura</span>{{ end -}}
-          {{- $lazyLoading := site.Params.enableImageLazyLoading | default true -}}
-          {{ if and .Date .Params.authors }}<span class="hx:mx-1">·</span>{{ end -}}
-          {{- with $.Params.authors -}}
-            {{- range $i, $author := . -}}
-              {{- if reflect.IsMap $author -}}
-                {{- if and $i (not $author.image) }}<span class="hx:mr-1">,</span>{{ end -}}
-                <a
-                  {{ with $author.link }}href="{{ . }}" target="_blank"{{ end }}
-                  class="hx:group hx:inline-flex hx:items-center hx:text-current hx:gap-x-1.5 hx:mx-1"
-                  {{ with $author.name }}title="{{ . }}"{{ end }}
-                >
-                  {{- with $image := $author.image }}
-                    {{- $isLocal := not (urls.Parse $image).Scheme -}}
-                    {{- $startsWithSlash := hasPrefix $image "/" -}}
-                    {{- if and $isLocal $startsWithSlash }}
-                      {{- $image = (relURL (strings.TrimPrefix "/" $image)) -}}
-                    {{ end -}}
-                    <img src="{{ $image | safeURL }}" alt="{{ $author.name }}" class="hx:inline-block hx:h-4 hx:w-4 hx:rounded-full" {{ if $lazyLoading }}loading="lazy"{{ end }} />
-                  {{ end -}}
-                  <div class="hx:group-hover:underline">{{ $author.name }}</div>
+        {{ with .Description }}<p class="sg-post-desc">{{ . }}</p>{{ end }}
+        <p class="sg-meta">
+          {{ partial "utils/format-date" .Date }}{{ with .ReadingTime }}, {{ . }} min de leitura{{ end }}
+        </p>
+      </header>
+
+      {{ if and (.Params.toc | default true) .Fragments.Headings }}
+        <details class="sg-post-sumario">
+          <summary>
+            Neste post
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          {{ .TableOfContents }}
+        </details>
+      {{ end }}
+
+      <div class="content sg-post-conteudo">
+        {{ .Content }}
+      </div>
+
+      {{- partial "components/last-updated.html" . -}}
+
+      <section class="sg-post-fim" aria-label="Fim do post">
+        <button class="sg-botao sg-botao-primario sg-botao-bloco" type="button" data-compartilhar data-titulo="{{ .Title }}" data-url="{{ .Permalink }}">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 8 5-5 5 5"/><path d="M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>
+          <span data-compartilhar-texto>Compartilhar este post</span>
+        </button>
+      </section>
+
+      {{ if or $anterior $proximo }}
+        <nav class="sg-post-navegacao" aria-label="Outros posts">
+          {{ with $anterior }}
+            <a class="sg-post-nav-link" href="{{ .RelPermalink }}">
+              <span class="sg-meta">Post anterior</span>
+              <span class="sg-post-nav-titulo">{{ .Title }}</span>
+            </a>
+          {{ else }}<span></span>{{ end }}
+          {{ with $proximo }}
+            <a class="sg-post-nav-link sg-post-nav-proximo" href="{{ .RelPermalink }}">
+              <span class="sg-meta">Próximo post</span>
+              <span class="sg-post-nav-titulo">{{ .Title }}</span>
+            </a>
+          {{ end }}
+        </nav>
+      {{ end }}
+
+      {{ with $relacionados }}
+        <section class="sg-post-relacionados" aria-labelledby="sg-leia-tambem">
+          <h2 id="sg-leia-tambem">Leia também</h2>
+          <p class="sg-meta">Escolhidos pelos assuntos deste post.</p>
+          <ul>
+            {{ range . }}
+              <li>
+                <a class="sg-lista-post" href="{{ .RelPermalink }}">
+                  {{ partial "sg/post-miniatura.html" (dict "page" . "classe" "sg-lista-post-img" "larguras" (slice 160) "recorte" "1x1") }}
+                  <span class="sg-lista-post-texto">
+                    <span class="sg-lista-post-titulo">{{ .Title }}</span>
+                    <span class="sg-meta">{{ partial "utils/format-date" .Date }}</span>
+                  </span>
                 </a>
-              {{- else -}}
-                {{- if $i }}<span class="hx:mr-1">,</span>{{ end -}}<span class="hx:mx-1">{{ $author }}</span>
-              {{- end -}}
-            {{- end -}}
-          {{- end -}}
-        </div>
-        <div class="content">
-          {{ .Content }}
-        </div>
-        {{- partial "components/last-updated.html" . -}}
-        {{- if (site.Params.blog.article.displayPagination | default true) -}}
-          {{- .Store.Set "reversePagination" (.Params.reversePagination | default true) -}}
-          {{- partial "components/pager.html" . -}}
-        {{ end }}
-        {{- partial "components/comments.html" . -}}
-      </main>
-    </article>
-  </div>
+              </li>
+            {{ end }}
+          </ul>
+        </section>
+      {{ end }}
+
+      {{- partial "components/comments.html" . -}}
+    </main>
+  </article>
+</div>
+
+<button class="sg-topo" type="button" aria-label="Voltar ao topo" hidden>
+  <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<script>
+(() => {
+  const barra = document.querySelector(".sg-progresso-barra")
+  const topo = document.querySelector(".sg-topo")
+  const conteudo = document.querySelector(".sg-post-conteudo")
+  const reduzir = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+
+  // Progresso de leitura: do começo ao fim do texto do post.
+  let agendado = false
+  const atualizar = () => {
+    agendado = false
+    if (!conteudo) return
+    const inicio = conteudo.getBoundingClientRect().top + window.scrollY
+    const fim = inicio + conteudo.offsetHeight - window.innerHeight
+    const total = Math.max(fim - inicio, 1)
+    const pct = Math.min(Math.max((window.scrollY - inicio) / total, 0), 1)
+    if (barra) barra.style.transform = `scaleX(${pct})`
+    if (topo) topo.hidden = window.scrollY < 900
+  }
+  window.addEventListener("scroll", () => {
+    if (!agendado) { agendado = true; requestAnimationFrame(atualizar) }
+  }, { passive: true })
+  atualizar()
+
+  topo?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: reduzir ? "auto" : "smooth" })
+  })
+
+  // Sumário do celular: fecha ao escolher uma seção.
+  document.querySelectorAll(".sg-post-sumario a").forEach((link) => {
+    link.addEventListener("click", () => link.closest("details")?.removeAttribute("open"))
+  })
+
+  // Compartilhar: menu nativo do celular; no computador, copia o link.
+  const botao = document.querySelector("[data-compartilhar]")
+  const texto = document.querySelector("[data-compartilhar-texto]")
+  botao?.addEventListener("click", async () => {
+    const dados = { title: botao.dataset.titulo, url: botao.dataset.url }
+    try {
+      if (navigator.share) {
+        await navigator.share(dados)
+        return
+      }
+      await navigator.clipboard.writeText(dados.url)
+      texto.textContent = "Link copiado"
+    } catch (erro) {
+      if (erro && erro.name === "AbortError") return
+      texto.textContent = "Não deu para copiar. Copie o link da barra de endereço."
+    }
+    setTimeout(() => { texto.textContent = "Compartilhar este post" }, 2500)
+  })
+})()
+</script>
+
 {{ end }}

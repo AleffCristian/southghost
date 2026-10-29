@@ -1,0 +1,16 @@
+{{- /*
+  Miniatura de um post: a imagem de capa (front matter "images") recortada,
+  ou a inicial do título quando o post não tem imagem.
+  Entrada: dict "page", "classe", "larguras", "recorte".
+*/ -}}
+{{- $p := .page -}}
+{{- $capa := "" -}}
+{{- with $p.Params.images -}}
+  {{- if reflect.IsSlice . }}{{ $capa = index . 0 }}{{ else }}{{ $capa = . }}{{ end -}}
+{{- end -}}
+{{- with $capa -}}
+  {{- $img := partial "sg/imagem.html" (dict "src" . "larguras" ($.larguras | default (slice 160 320)) "recorte" ($.recorte | default "1x1")) -}}
+  <img class="{{ $.classe }}" src="{{ $img.src }}"{{ with $img.srcset }} srcset="{{ . }}" sizes="(max-width: 640px) 90px, 360px"{{ end }}{{ with $img.largura }} width="{{ . }}" height="{{ $img.altura }}"{{ end }} alt="" loading="lazy" decoding="async">
+{{- else -}}
+  <span class="{{ $.classe }} sg-inicial" aria-hidden="true">{{ substr $p.Title 0 1 }}</span>
+{{- end -}}

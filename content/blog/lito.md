@@ -7,6 +7,7 @@ tags:
   - Blog
   - Pessoal
 featured: true
+images: ["/imagens/jesusnoget1.jpg"]
 ---
 
 # Lito Sousa e a Angústia do Inevitável

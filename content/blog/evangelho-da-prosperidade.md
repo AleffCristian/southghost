@@ -5,7 +5,7 @@ date: 2026-10-25T16:30:00-03:00
 draft: false
 tags:
   - Religião
-  - Reflexivos
+  - Reflexão
 images: ["/imagens/posts/evangelho-da-prosperidade/capa.jpg"]
 imageZoom: true
 ---

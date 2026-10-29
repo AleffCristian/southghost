@@ -32,6 +32,9 @@
   {{ $ultimo = index (sort . "data_assistido" "desc") 0 }}
 {{ end }}
 
+{{/* O menu do celular do Hextra depende deste contêiner. Sem ele, o botão de menu não funciona. */}}
+{{ partial "sidebar.html" (dict "context" . "disableSidebar" true "displayPlaceholder" false) }}
+
 <div class="sg-midia">
 
   {{ partial "sg/voltar-home.html" . }}

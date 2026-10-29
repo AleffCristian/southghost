@@ -6,7 +6,7 @@ draft: false
 tags:
   - História
   - Cultura
-  - Reflexivos
+  - Reflexão
 images: ["/imagens/posts/pacto-com-o-diabo/capa.jpg"]
 imageZoom: true
 ---

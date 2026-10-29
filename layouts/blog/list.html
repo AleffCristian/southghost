@@ -1,0 +1,130 @@
+{{ define "main" }}
+
+{{/*
+  Lista de blog posts (substitui layouts/blog/list.html do Hextra v0.12.3).
+  Mostra todos os posts agrupados por mês, com busca e filtro por assunto
+  no próprio navegador. Sem paginação: o blog ainda é pequeno; se passar de
+  ~100 posts, vale voltar a paginar.
+*/}}
+
+{{ $posts := .Pages.ByDate.Reverse }}
+
+{{/* Assuntos com contagem, do mais usado para o menos usado */}}
+{{ $contagem := dict }}
+{{ range $posts }}
+  {{ range .Params.tags }}
+    {{ $contagem = merge $contagem (dict . (add (index $contagem . | default 0) 1)) }}
+  {{ end }}
+{{ end }}
+{{ $assuntos := slice }}
+{{ range $nome, $n := $contagem }}
+  {{ $assuntos = $assuntos | append (dict "nome" $nome "n" $n) }}
+{{ end }}
+{{ $assuntos = sort $assuntos "n" "desc" }}
+
+{{ partial "sidebar.html" (dict "context" . "disableSidebar" true "displayPlaceholder" false) }}
+
+<div class="sg-lista">
+
+  {{ partial "sg/voltar-home.html" . }}
+
+  <header class="sg-lista-header">
+    <h1>Blog posts</h1>
+    <p class="sg-meta">{{ len $posts }} posts, do mais recente ao mais antigo.</p>
+  </header>
+
+  <div class="sg-lista-ferramentas">
+    <label class="sg-busca">
+      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <span class="hx:sr-only">Buscar nos posts</span>
+      <input type="search" placeholder="Buscar nos posts" autocomplete="off" data-busca>
+    </label>
+
+    <div class="sg-chips" role="group" aria-label="Filtrar por assunto">
+      <button class="sg-chip is-active" type="button" data-assunto="" aria-pressed="true">Todos <span>{{ len $posts }}</span></button>
+      {{ range first 8 $assuntos }}
+        <button class="sg-chip" type="button" data-assunto="{{ .nome | urlize }}" aria-pressed="false">{{ .nome }} <span>{{ .n }}</span></button>
+      {{ end }}
+    </div>
+  </div>
+
+  <p class="sg-lista-vazio" data-vazio hidden>Nenhum post com esse termo. Tente outra palavra ou limpe o filtro.</p>
+
+  {{ range $posts.GroupByDate "January 2006" }}
+    <section class="sg-lista-mes" data-mes>
+      <h2>{{ (index .Pages 0).Date | time.Format "January de 2006" | strings.FirstUpper }}</h2>
+      <ul>
+        {{ range .Pages }}
+          {{ $assuntosPost := slice }}
+          {{ range .Params.tags }}{{ $assuntosPost = $assuntosPost | append (. | urlize) }}{{ end }}
+          <li
+            data-post
+            data-assuntos="{{ delimit $assuntosPost " " }}"
+            data-texto="{{ lower (printf "%s %s %s" .Title (.Description | default "") (delimit (.Params.tags | default slice) " ")) }}"
+          >
+            <a class="sg-lista-post" href="{{ .RelPermalink }}">
+              {{ partial "sg/post-miniatura.html" (dict "page" . "classe" "sg-lista-post-img" "larguras" (slice 160) "recorte" "1x1") }}
+              <span class="sg-lista-post-texto">
+                <span class="sg-lista-post-titulo">{{ .Title }}</span>
+                {{ with .Description }}<span class="sg-lista-post-desc">{{ . }}</span>{{ end }}
+                <span class="sg-meta">{{ partial "utils/format-date" .Date }}{{ with .Params.tags }} · {{ delimit . ", " }}{{ end }}</span>
+              </span>
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </section>
+  {{ end }}
+
+</div>
+
+<script>
+(() => {
+  const raiz = document.querySelector(".sg-lista")
+  if (!raiz) return
+
+  const busca = raiz.querySelector("[data-busca]")
+  const chips = raiz.querySelectorAll(".sg-chip")
+  const posts = raiz.querySelectorAll("[data-post]")
+  const meses = raiz.querySelectorAll("[data-mes]")
+  const vazio = raiz.querySelector("[data-vazio]")
+  let assunto = ""
+
+  // Busca sem acento: "reflexao" encontra "Reflexão".
+  const normalizar = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim()
+
+  const aplicar = () => {
+    const termo = normalizar(busca.value || "")
+    let visiveis = 0
+
+    posts.forEach((post) => {
+      const temAssunto = !assunto || post.dataset.assuntos.split(" ").includes(assunto)
+      const temTermo = !termo || normalizar(post.dataset.texto).includes(termo)
+      post.hidden = !(temAssunto && temTermo)
+      if (!post.hidden) visiveis++
+    })
+
+    meses.forEach((mes) => {
+      mes.hidden = !mes.querySelector("[data-post]:not([hidden])")
+    })
+
+    vazio.hidden = visiveis > 0
+  }
+
+  busca.addEventListener("input", aplicar)
+
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      assunto = chip.dataset.assunto
+      chips.forEach((c) => {
+        const ativo = c === chip
+        c.classList.toggle("is-active", ativo)
+        c.setAttribute("aria-pressed", String(ativo))
+      })
+      aplicar()
+    })
+  })
+})()
+</script>
+
+{{ end }}

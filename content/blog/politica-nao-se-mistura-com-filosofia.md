@@ -351,12 +351,3 @@ Por ora, prefiro estudar mais, falar menos e aceitar que algumas perguntas vão 
 > ***O mundo já tem certezas demais.***
 >
 > ***Talvez falte espaço para quem ainda está tentando entender.***
-
----
-
-### Leia também
-
-{{< cards >}}
-  {{< card link="/blog/brasileiro-e-otario/" title="Brasileiro é otário" icon="flag" subtitle="O brasileiro não é burro. Talvez esse seja justamente o problema." >}}
-  {{< card link="/blog/lula-e-a-formacao-do-pt/" title="Lula e a formação do PT" icon="book-open" subtitle="De sindicalista a força política nacional." >}}
-{{< /cards >}}

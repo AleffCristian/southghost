@@ -4,8 +4,9 @@ description: "Uma reflexão sobre diferentes conceitos de demônios, Lúcifer, o
 date: 2026-10-01T14:25:55-03:00
 draft: false
 tags:
-  - Reflexivos
+  - Reflexão
   - YouTube
+images: ["/imagens/posts/demologia/teologiaa.png"]
 ---
 
 O mundo espiritual sempre me interessou, desde muito cedo. 
@@ -316,6 +317,7 @@ Apesar da resistência inicial de Moloch, um dos príncipes do inferno, Belphego
 Esses demônios também recebem os títulos de **sete reis, sete príncipes do inferno ou sete caídos**.
 
 ![Representação](/imagens/posts/demologia/11.png)
+
 ---
 
 ## Uma segunda hierarquia
@@ -379,6 +381,7 @@ Os arquiduques seriam superiores aos duques, entre os quais estariam os nomes as
 
 Abaixo deles ficariam as legiões do inferno, os diabretes e outros demônios menores.
 ![Representação](/imagens/posts/demologia/14.png)
+
 ---
 
 ## Lilith, Legião e os seres noturnos
@@ -463,6 +466,7 @@ Em algumas versões da lenda, um súcubo poderia se transformar em íncubo depoi
 
 No Oriente Médio, existe uma variação dessas criaturas conhecida como **al-duice**, que seduz homens infiéis e, em vez de apenas drená-los, desconecta e devora suas vítimas como forma de punição.
 ![Representação](/imagens/posts/demologia/20.png)
+
 ---
 
 ## Conclusão

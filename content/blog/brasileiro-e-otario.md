@@ -9,6 +9,7 @@ tags:
   - Reflexão
 featured: false
 draft: false
+images: ["/imagens/posts/brasileiro-e-otario/14_bis.jpg"]
 ---
 
 > ***Se você acha que vou puxar saco de estrangeiro, este texto não é para você.***

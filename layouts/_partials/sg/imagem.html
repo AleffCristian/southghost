@@ -1,0 +1,37 @@
+{{- /*
+  Prepara uma imagem de post para exibição.
+  Entrada: dict "src" (caminho como no front matter, ex. "/imagens/posts/x/capa.jpg"),
+           "larguras" (slice de larguras, ex. (slice 400 800 1200)),
+           "recorte" (opcional, ex. "1x1" ou "16x10": recorta no centro, útil para miniaturas).
+  Saída (return): dict com src, srcset, largura, altura. Se a imagem não puder
+  ser processada (externa, inexistente), devolve o caminho original.
+*/ -}}
+{{- $saida := dict "src" "" "srcset" "" "largura" 0 "altura" 0 -}}
+{{- with .src -}}
+  {{- $original := . -}}
+  {{- $caminho := strings.TrimPrefix "/" . -}}
+  {{- $larguras := $.larguras | default (slice 800) -}}
+  {{- with resources.Get $caminho -}}
+    {{- $img := . -}}
+    {{- $partes := slice -}}
+    {{- $ultima := false -}}
+    {{- range $larguras -}}
+      {{- $w := . -}}
+      {{- if gt $w $img.Width }}{{ $w = $img.Width }}{{ end -}}
+      {{- $proc := false -}}
+      {{- with $.recorte -}}
+        {{- $r := split . "x" -}}
+        {{- $h := int (math.Round (div (mul (float $w) (float (index $r 1))) (float (index $r 0)))) -}}
+        {{- $proc = $img.Fill (printf "%dx%d webp q78 Center" $w $h) -}}
+      {{- else -}}
+        {{- $proc = $img.Resize (printf "%dx webp q78" $w) -}}
+      {{- end -}}
+      {{- $partes = $partes | append (printf "%s %dw" $proc.RelPermalink $proc.Width) -}}
+      {{- $ultima = $proc -}}
+    {{- end -}}
+    {{- $saida = dict "src" $ultima.RelPermalink "srcset" (delimit (uniq $partes) ", ") "largura" $ultima.Width "altura" $ultima.Height -}}
+  {{- else -}}
+    {{- $saida = dict "src" ($caminho | relURL) "srcset" "" "largura" 0 "altura" 0 -}}
+  {{- end -}}
+{{- end -}}
+{{- return $saida -}}

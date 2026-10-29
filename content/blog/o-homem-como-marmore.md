@@ -5,7 +5,7 @@ date: 2026-10-18T16:20:00-03:00
 draft: false
 tags:
   - Filosofia
-  - Reflexivos
+  - Reflexão
 images: ["/imagens/posts/o-homem-como-marmore/capa.jpg"]
 imageZoom: true
 ---
